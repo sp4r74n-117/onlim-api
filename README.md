@@ -11,6 +11,8 @@ file: $CATALINA_HOME/conf/tomcat-users.xml
 
 2.) maven set tomcat user/password:
 file: ~/.m2/settings.xml
+
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <settings>
     <servers>
@@ -21,6 +23,7 @@ file: ~/.m2/settings.xml
         </server>
     </servers>
 </settings>
+```
 
 3.) run application:
 $ mvn tomcat7:run
