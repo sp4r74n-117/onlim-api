@@ -13,6 +13,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Builder class to construct a {@link onlim.api.generator.Template} object
+ */
 public class TemplateBuilder {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TemplateBuilder.class);
 	
@@ -21,6 +24,11 @@ public class TemplateBuilder {
 	private final Map<String, Object> metas;
 	private final List<Constraint> constraints;
 	
+	/**
+	 * Construct a builder with a given text snippet
+	 * 
+	 * @param template text snipped
+	 */
 	public TemplateBuilder(final String template) {
 		this.template = template;
 		this.substitutables = new HashMap<>();
@@ -28,6 +36,13 @@ public class TemplateBuilder {
 		this.constraints = new LinkedList<>();
 	}
 	
+	/**
+	 * Constructs a builder by loading a resource reachable by the classloader
+	 * 
+	 * @param context ClassLoader to use for lookup
+	 * @param name fully qualified path to requested resource
+	 * @throws IOException
+	 */
 	public TemplateBuilder(final ClassLoader context, final String name) throws IOException {
 		final InputStream in = this.getClass().getClassLoader().getResourceAsStream(name);
 		if (in == null) {
@@ -54,6 +69,13 @@ public class TemplateBuilder {
 		this.constraints = new LinkedList<>();
 	}
 	
+	/**
+	 * Associates a given placeholder with a substitutable
+	 * 
+	 * @param placeholder placeholder
+	 * @param substitutable substitutable
+	 * @return reference to this 
+	 */
 	public TemplateBuilder addMapping(final String placeholder, final Substitutable substitutable) {
 		final Substitutable oldMapping = this.substitutables.put(placeholder, substitutable);
 		if (oldMapping != null) {
@@ -62,6 +84,13 @@ public class TemplateBuilder {
 		return this;
 	}
 	
+	/**
+	 * Attach a (key,value) pair to the {@link onlim.api.generator.Template}
+	 * 
+	 * @param key key
+	 * @param value value
+	 * @return reference to this
+	 */
 	public TemplateBuilder addMetaValue(final String key, final Object value) {
 		final Object oldMapping = this.metas.put(key, value);
 		if (oldMapping != null) {
@@ -70,11 +99,22 @@ public class TemplateBuilder {
 		return this;
 	}
 	
+	/**
+	 * Add an abstract constraint to the {@link onlim.api.generator.Template}
+	 * 
+	 * @param constraint constraint
+	 * @return reference to this
+	 */
 	public TemplateBuilder addConstraint(final Constraint constraint) {
 		this.constraints.add(constraint);
 		return this;
 	}
 	
+	/**
+	 * Clears all associated mappings, meta values and constraints
+	 * 
+	 * @return reference to this
+	 */
 	public TemplateBuilder rewind() {
 		this.substitutables.clear();
 		this.metas.clear();
@@ -82,6 +122,11 @@ public class TemplateBuilder {
 		return this;
 	}
 	
+	/**
+	 * Construct the final {@link onlim.api.generator.Template}
+	 * 
+	 * @return constructed {@link onlim.api.generator.Template} object
+	 */
 	public Template build() {
 		return new Template(template, substitutables, metas, constraints);
 	}
