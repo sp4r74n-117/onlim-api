@@ -73,5 +73,14 @@ public class TemplateBuilderTest {
 		
 		tm = tb.rewind().addMetaValue("language", "en_US").addConstraint(c).build();
 		assertTrue(tm.isSatisfiable());
+		
+		final Substitutable ss = new MockSubstitutable("a");
+		ss.addConstraint(c);
+		
+		tm = tb.rewind().addMapping("1", ss).addMetaValue("language", "de_DE").build();
+		assertFalse(tm.isSubstitutable(ss));
+		
+		tm = tb.rewind().addMapping("1", ss).addMetaValue("language", "en_US").build();
+		assertTrue(tm.isSubstitutable(ss));
 	}
 }

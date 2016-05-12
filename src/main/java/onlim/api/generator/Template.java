@@ -7,11 +7,16 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Abstract template text which can be additionally described by
  * meta information, constraints and a set of substitutables
  */
 public class Template {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Template.class);
+	
 	private String template;
 	private final Map<String, Substitutable> substitutables;
 	private final Map<String, Object> metas;
@@ -45,6 +50,9 @@ public class Template {
 	 * @return true iff the substitutable is mapped to the template
 	 */
 	public boolean isSubstitutable(final Substitutable substitutable) {
+		if (!substitutable.isSatisfiable(getMetaValues()))
+			return false;
+		
 		for (final Entry<String, Substitutable> e : this.substitutables.entrySet()) {
 			if (e.getValue().equals(substitutable))
 				return true;
@@ -93,6 +101,11 @@ public class Template {
 	 * @return reference to this
 	 */
 	public Template substitute(final Substitutable substitutable, final String value) {
+		if (!isSubstitutable(substitutable)) {
+			LOGGER.warn("invalid attempt to subsitute invalid substitutable: " + substitutable.toString());
+			return this;
+		}
+		
 		final Set<String> processed = new HashSet<>();
 		for (final Entry<String, Substitutable> e : this.substitutables.entrySet()) {
 			if (!e.getValue().equals(substitutable))
