@@ -1,0 +1,129 @@
+{
+  "@context":  {
+    "rdf":  "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs":  "http://www.w3.org/2000/01/rdf-schema#",
+    "schema":  "http://schema.org/",
+    "xsd":  "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [
+    {
+      "@id":  "http://tourpack.redlink.io/seekda/2015/S000128",
+      "schema:makesOffer":  {
+        "@id":  "_:ub70bL5C28"
+      }
+    },
+    {
+      "@id":  "_:ub70bL12C36",
+      "@type":  "schema:Service",
+      "schema:name":  {
+        "@language":  "en",
+        "@value":  "Massage"
+      }
+    },
+    {
+      "@id":  "_:ub70bL26C53",
+      "@type":  "schema:BuyAction",
+      "schema:target":  [
+        "http://www.fancyhotel.com/offer/buy/12345",
+        {
+          "@id":  "_:ub70bL28C22"
+        }
+      ]
+    },
+    {
+      "@id":  "_:ub70bL14C15",
+      "@type":  "schema:Service",
+      "schema:name":  "Day Spa"
+    },
+    {
+      "@id":  "_:ub70bL28C22",
+      "@type":  "schema:EntryPoint",
+      "schema:contentType:":  "application/json+ld",
+      "schema:urlTemplate:":  "http://api.fancyhotel.com/offer/buy/12345"
+    },
+    {
+      "@id":  "_:ub70bL5C28",
+      "@type":  "schema:Offer",
+      "schema:image":  {
+        "@id":  "_:ub70bL6C57"
+      },
+      "schema:itemOffered":  [
+        {
+          "@id":  "_:ub70bL12C36"
+        },
+        {
+          "@id":  "_:ub70bL14C15"
+        }
+      ],
+      "schema:name":  [
+        {
+          "@language":  "en",
+          "@value":  "Alpine Wellness"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Alpine Wellness"
+        },
+        {
+          "@language":  "it",
+          "@value":  "Ben-essere Dolomiti"
+        }
+      ],
+      "schema:potentialAction":  {
+        "@id":  "_:ub70bL26C53"
+      },
+      "schema:priceSpecification":  {
+        "@id":  "_:ub70bL17C57"
+      },
+      "schema:serialNumber":  "S000128PB1",
+      "schema:teaser":  [
+        {
+          "@language":  "it",
+          "@value":  "Trattamento viso 24.7 Manicure Spa Scrub corpo vitalizzante Massaggio corpo nutriente&nbsp;"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Gesichts 24.7&nbsp; Spa-ManikÃ¼re&nbsp; Revital Body Scrub&nbsp; Pflegende KÃ¶rpermassage"
+        },
+        {
+          "@language":  "en",
+          "@value":  "Facial 24.7&nbsp; Spa Manicure&nbsp; Revitalising Body Scrub&nbsp; Nourishing body massage"
+        }
+      ]
+    },
+    {
+      "@id":  "_:ub70bL6C57",
+      "@type":  "schema:ImageObject",
+      "schema:caption":  [
+        {
+          "@language":  "de",
+          "@value":  "Massage and Spa"
+        },
+        {
+          "@language":  "en",
+          "@value":  "Massage and Spa"
+        },
+        {
+          "@language":  "it",
+          "@value":  "Massaggio and Spa"
+        }
+      ],
+      "schema:contentUrl":  "https://images.seekda.net/S000128/H.Europeo-47.jpg?orig"
+    },
+    {
+      "@id":  "_:ub70bL17C57",
+      "@type":  "schema:PriceSpecification",
+      "schema:price":  220.0,
+      "schema:priceCurrency":  "EUR",
+      "schema:validFrom":  {
+        "@type":  "xsd:dateTime",
+        "@value":  "2016-07-10T00:00:00+00:00"
+      },
+      "schema:validThrough":  {
+        "@type":  "xsd:dateTime",
+        "@value":  "2015-06-18T09:00:08+00:00"
+      },
+      "schema:valueAddedTaxIncluded":  true
+    }
+  ]
+}

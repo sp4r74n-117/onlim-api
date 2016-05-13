@@ -42,6 +42,13 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- Parsing -->
+		<dependency>
+	  		<groupId>com.github.jsonld-java</groupId>
+	  		<artifactId>jsonld-java</artifactId>
+	  		<version>0.8.2</version>
+  		</dependency>
 
 
 		<!-- Testing -->
