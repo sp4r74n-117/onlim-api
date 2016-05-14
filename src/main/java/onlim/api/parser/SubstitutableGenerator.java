@@ -59,11 +59,10 @@ public class SubstitutableGenerator {
 					substi.addProperty(getType(t.getSubject()));
 				substi.addProperty(t.getPredicate());
 				substi.setValue(removeExtensions(t.getObject()));
-				substi.addConstraint(c);
+				if(c != null) substi.addConstraint(c);
 				sub.add(substi);
 			} else {
-				if(!isRoot(t))
-					properties.add(getType(t.getSubject()));
+				if(!isRoot(t)) properties.add(getType(t.getSubject()));
 				properties.add(t.getPredicate());
 				generate(sub, properties, t.getObject(), c);
 			}
