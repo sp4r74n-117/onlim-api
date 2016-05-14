@@ -79,6 +79,12 @@ public class ParserTest {
 	}
 	
 	@Test
+	public void isRoot() {
+		Triple t = new Triple("<http://tourpack.redlink.io/seekda/2015/S000128>", "<http://schema.org/makesOffer>", "_:b0");
+		assertEquals(true, gen.isRoot(t));
+	}
+	
+	@Test
 	public void testAssociatedTriples() {
 		assertEquals(13, gen.getAssociatedTriples("_:b0").size());
 		assertEquals(2, gen.getAssociatedTriples("_:b1").size());
@@ -87,5 +93,41 @@ public class ParserTest {
 		assertEquals(2, gen.getAssociatedTriples("_:b4").size());
 		assertEquals(5, gen.getAssociatedTriples("_:b5").size());
 		assertEquals(6, gen.getAssociatedTriples("_:b6").size());
+	}
+	
+	@Test
+	public void testRemoveTriplesWithNoType() {
+		assertEquals(34, gen.removeTriplesWithNoType().size());
+	}
+	
+	@Test
+	public void getType() {		
+		assertEquals("<http://schema.org/Offer>", gen.getType("_:b0"));
+	}
+	
+	@Test
+	public void isTypeTriple() {
+		Triple t = new Triple("a", "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>", "TYPE");
+		assertEquals(true, gen.isTypeTriple(t));
+		
+	}
+	
+	@Test
+	public void removeExtensions() {
+		Triple t = new Triple("a", "hasValue", "\"2016-07-10T00:00:00+00:00\"^^TYPE");		
+		Triple t1 = new Triple("a", "hasValue", "\"Massage and Spa\"@en");	
+		assertEquals("\"2016-07-10T00:00:00+00:00\"" , gen.removeExtensions(t.getObject()));
+		assertEquals("\"Massage and Spa\"" , gen.removeExtensions(t1.getObject()));
+	}
+	
+	@Test
+	public void languageConstraintCheck() {
+		assertEquals(true, gen.languageConstraintCheck("\"Massage and Spa\"@en"));
+		assertEquals(false, gen.languageConstraintCheck("\"Massage and Spa\"@it"));
+	}
+	
+	@Test
+	public void generator() {
+		assertEquals(15, gen.generateSubstitutables().size());
 	}
 }

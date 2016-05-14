@@ -22,6 +22,10 @@ public class ParsedSubstitutable extends Substitutable {
 		this.props.add(p);
 	}
 	
+	public void addProperties(List<String> pLst) {
+		this.props.addAll(pLst);
+	}
+	
 	public void setValue(String v) {
 		this.value = v;
 	}
