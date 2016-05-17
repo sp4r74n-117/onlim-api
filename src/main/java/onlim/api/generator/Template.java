@@ -101,6 +101,9 @@ public class Template {
 	 * @return reference to this
 	 */
 	public Template substitute(final Substitutable substitutable, final String value) {
+		if (isResolved())
+			return this;
+		
 		if (!isSubstitutable(substitutable)) {
 			LOGGER.warn("invalid attempt to subsitute invalid substitutable: " + substitutable.toString());
 			return this;
