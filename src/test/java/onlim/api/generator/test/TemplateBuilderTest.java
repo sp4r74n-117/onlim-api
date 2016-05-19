@@ -128,4 +128,23 @@ public class TemplateBuilderTest {
 		assertTrue(tm.isResolved());
 		assertEquals("This is a test substitution.", tm.toString());
 	}
+	
+	@Test
+	public void testCloneable() {
+		final Substitutable s1 = new MockSubstitutable("a");
+		
+		final Template tm1 = tb.addMapping("1", s1).build();
+		Template tm2 = null;
+		try {
+			tm2 = tm1.clone();
+		} catch (final CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		assertNotEquals(null, tm2);
+
+		assertTrue(tm1.substitute(s1, "test").isResolved());
+		assertFalse(tm2.isResolved());
+		assertEquals("This is a {1} substitution.", tm2.toString());
+		assertTrue(tm2.substitute(s1, "test").isResolved());
+	}
 }

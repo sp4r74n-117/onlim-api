@@ -1,6 +1,7 @@
 package onlim.api.generator;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -14,11 +15,11 @@ import org.slf4j.LoggerFactory;
  * Abstract template text which can be additionally described by
  * meta information, constraints and a set of substitutables
  */
-public class Template {
+public class Template implements Cloneable {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Template.class);
 	
 	private String template;
-	private final Map<String, Substitutable> substitutables;
+	private Map<String, Substitutable> substitutables;
 	private final Map<String, Object> metas;
 	private final List<Constraint> constraints;
 	
@@ -150,5 +151,13 @@ public class Template {
 	@Override
 	public String toString() {
 		return this.template;
+	}
+
+	@Override
+	public Template clone() throws CloneNotSupportedException {
+		 final Template result = Template.class.cast(super.clone());
+		 result.template = new String(template);
+		 result.substitutables = new HashMap<>(substitutables);
+		 return result;
 	}
 }
