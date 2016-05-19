@@ -51,7 +51,7 @@ public class Template implements Cloneable {
 	 * @param substitutables substitutables to check for
 	 * @return true iff the template can be resolved
 	 */
-	public boolean isResolvable(final Set<Substitutable> substitutables) {
+	public <T extends Substitutable> boolean isResolvable(final Set<T> substitutables) {
 		int count = 0;
 		for (final Substitutable substitutable: substitutables) {
 			if (isSubstitutable(substitutable))
@@ -69,7 +69,7 @@ public class Template implements Cloneable {
 	public boolean isSubstitutable(final Substitutable substitutable) {
 		if (!substitutable.isSatisfiable(getMetaValues()))
 			return false;
-		
+
 		for (final Entry<String, Substitutable> e : this.substitutables.entrySet()) {
 			if (e.getValue().equals(substitutable))
 				return true;

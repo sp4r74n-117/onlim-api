@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Abstract marker interface used by {@link onlim.api.generator.Template}
- * to replace certain placeholders with a given value
+ * Abstract class base used by {@link onlim.api.generator.Template}
+ * to replace certain placeholders with a value supplied by a {@link onlim.api.generator.Resolver}
  */
 public abstract class Substitutable {
 	private final List<Constraint> constraints;

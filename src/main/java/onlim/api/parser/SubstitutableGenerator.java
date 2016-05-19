@@ -1,8 +1,10 @@
 package onlim.api.parser;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +23,10 @@ public class SubstitutableGenerator {
 		this.triples = triples;
 	}
 
-	public List<ParsedSubstitutable> generateSubstitutables() {
+	public Set<ParsedSubstitutable> generateSubstitutables() {
 		List<Triple> roots = getRoots();
 		triples = removeTriplesWithNoType();
-		List<ParsedSubstitutable> subst = new LinkedList<>();
+		Set<ParsedSubstitutable> subst = new HashSet<>();
 		List<String> alreadyDone = new LinkedList<>();
 		for(Triple t : roots) {
 			if(alreadyDone.contains(t.getSubject())) continue;
