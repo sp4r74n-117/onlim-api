@@ -22,6 +22,8 @@ public class SubstitutableGenerator {
 	public SubstitutableGenerator(final List<Triple> triples) {
 		this.triples = triples;
 	}
+	
+	//TODO fix substitutables with same properties (e.g. by including an ID)
 
 	public Set<ParsedSubstitutable> generateSubstitutables() {
 		List<Triple> roots = getRoots();
@@ -33,8 +35,10 @@ public class SubstitutableGenerator {
 			List<ParsedSubstitutable> sub = new LinkedList<>();
 			List<String> properties = new LinkedList<>();
 			if(!triples.contains(t)) {
+				// if t had no type proceed with the object
 				generate(sub, properties, t.getObject(), null);
 			} else {
+				// if t has a type proceed with t
 				generate(sub, properties, t.getSubject(), null);
 			}
 			alreadyDone.add(t.getSubject());
@@ -60,7 +64,7 @@ public class SubstitutableGenerator {
 				if(!isRoot(t))
 					substi.addProperty(getType(t.getSubject()));
 				substi.addProperty(t.getPredicate());
-				substi.setValue(removeExtensions(t.getObject()));
+				substi.setValue(removeQuotes(removeExtensions(t.getObject())));
 				if(c != null) substi.addConstraint(c);
 				sub.add(substi);
 			} else {
@@ -138,6 +142,12 @@ public class SubstitutableGenerator {
 				return false;
 		}
 		return true;
+	}
+	
+	public String removeQuotes(final String v) {
+		if(v.charAt(0) == '\"' && v.charAt(v.length() - 1) == '\"')
+			return v.substring(1, v.length() - 1);
+		return v;
 	}
 	
 	public String removeExtensions(final String v) {

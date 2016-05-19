@@ -1,6 +1,7 @@
 package onlim.api.parser.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.io.IOException;
 import java.util.List;
@@ -128,6 +129,7 @@ public class ParserTest {
 	
 	@Test
 	public void generator() {
+		//TODO fix test
 		assertEquals(15, gen.generateSubstitutables().size());
 	}
 }
