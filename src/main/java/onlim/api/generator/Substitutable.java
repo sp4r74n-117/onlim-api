@@ -39,11 +39,7 @@ public abstract class Substitutable {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((constraints == null) ? 0 : constraints.hashCode());
-		return result;
+		return 31;
 	}
 
 	@Override
@@ -53,12 +49,6 @@ public abstract class Substitutable {
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
-			return false;
-		Substitutable other = (Substitutable) obj;
-		if (constraints == null) {
-			if (other.constraints != null)
-				return false;
-		} else if (!constraints.equals(other.constraints))
 			return false;
 		return true;
 	}

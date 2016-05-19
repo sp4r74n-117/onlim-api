@@ -44,6 +44,22 @@ public class Template {
 	}
 	
 	/**
+	 * Checks whether the given set of substitutables contains enough
+	 * information to resolve the given template.
+	 * 
+	 * @param substitutables substitutables to check for
+	 * @return true iff the template can be resolved
+	 */
+	public boolean isResolvable(final Set<Substitutable> substitutables) {
+		int count = 0;
+		for (final Substitutable substitutable: substitutables) {
+			if (isSubstitutable(substitutable))
+				++count;
+		}
+		return count == this.substitutables.size();
+	}
+	
+	/**
 	 * Checks whether a given substitutable is mapped to the template
 	 * 
 	 * @param substitutable substitutable to check for
@@ -59,7 +75,7 @@ public class Template {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Checks whether all associated constraints are satisfied
 	 * 

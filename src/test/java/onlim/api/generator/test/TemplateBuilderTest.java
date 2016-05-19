@@ -3,7 +3,9 @@ package onlim.api.generator.test;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import onlim.api.generator.Constraint;
 import onlim.api.generator.Substitutable;
@@ -16,6 +18,13 @@ import org.junit.Test;
 public class TemplateBuilderTest {
 	
 	private TemplateBuilder tb;
+	
+	private <T> Set<T> asSet(@SuppressWarnings("unchecked") T... args) {
+		final Set<T> result = new HashSet<T>();
+		for (final T arg : args)
+			result.add(arg);
+		return result;
+	}
 	
 	@Before
     public void setUp() {
@@ -82,5 +91,41 @@ public class TemplateBuilderTest {
 		
 		tm = tb.rewind().addMapping("1", ss).addMetaValue("language", "en_US").build();
 		assertTrue(tm.isSubstitutable(ss));
+	}
+	
+	@Test
+	public void testResolvable() {
+		final Constraint c = new Constraint() {
+			@Override
+			public boolean evaluate(final Map<String, Object> data) {
+				final Object value = data.get("language");
+				if (value == null) return false;
+				
+				return value.toString().equals("en_US");
+			}
+		};
+
+		final Substitutable ss1 = new MockSubstitutable("a");
+		ss1.addConstraint(c);
+		
+		final Substitutable ss2 = new MockSubstitutable("b");
+		ss2.addConstraint(c);
+		
+		final Substitutable ss3 = new MockSubstitutable("a");
+		
+		final Template tm = tb.addMapping("1", ss3).addMetaValue("language", "en_US").build();
+		assertFalse(tm.isResolved());
+		assertTrue(ss1.equals(ss3));
+		assertFalse(ss1.equals(ss2));
+		assertTrue(tm.isSubstitutable(ss1));
+		assertTrue(tm.isResolvable(asSet(ss1)));
+		assertFalse(tm.isResolvable(asSet(ss2)));
+		assertTrue(tm.isResolvable(asSet(ss1, ss2)));
+		
+		for (final Substitutable s : asSet(ss1, ss2))
+			tm.substitute(s, "test");
+		
+		assertTrue(tm.isResolved());
+		assertEquals("This is a test substitution.", tm.toString());
 	}
 }
