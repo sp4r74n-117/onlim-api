@@ -48,7 +48,7 @@ public class ParserTest {
 		assertEquals("_:b0, <http://schema.org/priceSpecification>, _:b6", triples.get(8).toString());
 		assertEquals("_:b0, <http://schema.org/serialNumber>, \"S000128PB1\"", triples.get(9).toString());
 		assertEquals("_:b0, <http://schema.org/teaser>, \"Facial 24.7&nbsp; Spa Manicure&nbsp; Revitalising Body Scrub&nbsp; Nourishing body massage\"@en", triples.get(10).toString());
-		assertEquals("_:b0, <http://schema.org/teaser>, \"Gesichts 24.7&nbsp; Spa-Maniküre&nbsp; Revital Body Scrub&nbsp; Pflegende Körpermassage\"@de", triples.get(11).toString());
+		assertEquals("_:b0, <http://schema.org/teaser>, \"Gesichts 24.7&nbsp; Spa-Manikuere&nbsp; Revital Body Scrub&nbsp; Pflegende Koerpermassage\"@de", triples.get(11).toString());
 		assertEquals("_:b0, <http://schema.org/teaser>, \"Trattamento viso 24.7 Manicure Spa Scrub corpo vitalizzante Massaggio corpo nutriente&nbsp;\"@it",triples.get(12).toString());;
 		assertEquals("_:b0, <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>, <http://schema.org/Offer>",triples.get(13).toString());
 		assertEquals("_:b1, <http://schema.org/name>, \"Massage\"@en",triples.get(14).toString());
