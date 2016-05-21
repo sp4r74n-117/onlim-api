@@ -12,7 +12,13 @@ import javax.ws.rs.core.Response;
 
 import com.github.jsonldjava.core.JsonLdError;
 
+import onlim.api.generator.Resolver;
+import onlim.api.generator.Substitutable;
+import onlim.api.generator.Template;
+import onlim.api.generator.TemplateStore;
 import onlim.api.parser.JsonLdParser;
+import onlim.api.parser.SubstitutableGenerator;
+import onlim.api.parser.resources.ParsedSubstitutable;
 import onlim.api.parser.resources.Triple;
 
 /**
@@ -40,12 +46,23 @@ public class OfferResource {
 			return Response.status(400).entity(e.getMessage()).build();
 		}
 		
-		StringBuilder builder = new StringBuilder();
-		for(Triple t : triples){
-			builder.append(t.toString()).append("\n");
-			// System.out.println(t.toString());
+		SubstitutableGenerator sg = new SubstitutableGenerator(triples);
+		List<Template> templates;
+		try {
+			templates = TemplateStore.get().resolve(sg.generateSubstitutables(), new Resolver() {
+				@Override
+				public String resolve(Substitutable substitutable) throws Exception {
+					return ParsedSubstitutable.class.cast(substitutable).getValue();
+				}
+			});
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(400).entity(e.getMessage()).build();
 		}
-
-		return Response.status(200).entity(builder.toString()).build();
+		
+		if (templates.isEmpty())
+			Response.status(200).build();
+		
+		return Response.status(200).entity(templates.get(0).toString()).build();
 	}
 }
