@@ -122,7 +122,7 @@ public class Template implements Cloneable {
 			return this;
 		
 		if (!isSubstitutable(substitutable)) {
-			LOGGER.warn("invalid attempt to subsitute invalid substitutable: " + substitutable.toString());
+			LOGGER.debug("invalid attempt to subsitute invalid substitutable: " + substitutable.toString());
 			return this;
 		}
 		
