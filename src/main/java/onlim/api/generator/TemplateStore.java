@@ -1,12 +1,11 @@
 package onlim.api.generator;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import onlim.api.parser.resources.ParsedSubstitutable;
+import static onlim.api.bridge.Bridge.pro;
 
 public class TemplateStore {
 	private final static TemplateStore INSTANCE = new TemplateStore();
@@ -16,12 +15,6 @@ public class TemplateStore {
 		return INSTANCE;
 	}
 
-	private ParsedSubstitutable pro(String... properties) {
-		final ParsedSubstitutable ps = new ParsedSubstitutable();
-		ps.addProperties(Arrays.asList(properties));
-		return ps;
-	}
-	
 	private TemplateBuilder newTemplate(final String name) {
 		try {
 			return new TemplateBuilder(getClass().getClassLoader(), name);
