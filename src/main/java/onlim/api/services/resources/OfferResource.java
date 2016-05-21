@@ -61,7 +61,7 @@ public class OfferResource {
 		}
 		
 		if (templates.isEmpty())
-			Response.status(200).build();
+			return Response.status(200).build();
 		
 		return Response.status(200).entity(templates.get(0).toString()).build();
 	}
