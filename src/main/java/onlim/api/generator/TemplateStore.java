@@ -1,11 +1,10 @@
 package onlim.api.generator;
 
+import static onlim.api.bridge.Bridge.pro;
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
-
-import static onlim.api.bridge.Bridge.pro;
 
 public class TemplateStore {
 	private final static TemplateStore INSTANCE = new TemplateStore();
@@ -35,11 +34,11 @@ public class TemplateStore {
 			.addMapping("FROM", pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/validFrom>"))
 			.addMapping("TO", pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/validThrough>"))
 			.addMapping("TARGET", pro("<http://schema.org/potentialAction>", "<http://schema.org/BuyAction>", "<http://schema.org/target>"))
-			.addMapping("URL_TEMPLATE", pro("<http://schema.org/potentialAction>", "<http://schema.org/BuyAction>", "<http://schema.org/target>", "<http://schema.org/EntryPoint>", "<http://schema.org/urlTemplate:>"))
+			.addMapping("URL_TEMPLATE", pro("<http://schema.org/potentialAction>", "<http://schema.org/BuyAction>", "1", "<http://schema.org/target>", "<http://schema.org/EntryPoint>", "<http://schema.org/urlTemplate:>"))
 			.build());
 	}
 	
-	public <T extends Substitutable> List<Template> resolve(final Set<T> substitutables, final Resolver resolver) throws Exception {
+	public <T extends Substitutable> List<Template> resolve(final List<T> substitutables, final Resolver resolver) throws Exception {
 		final List<Template> result = new LinkedList<>();
 		for (final Template template : this.templates) {
 			if (!template.isResolvable(substitutables)) continue;

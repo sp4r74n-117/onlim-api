@@ -13,11 +13,6 @@ public class ParsedSubstitutable extends Substitutable {
 		this.props = new LinkedList<String>();
 	}
 	
-	public ParsedSubstitutable(ParsedSubstitutable other) {
-		this();
-		this.props.addAll(other.props);
-	}
-	
 	public void addProperty(String p) {
 		this.props.add(p);
 	}
@@ -32,6 +27,10 @@ public class ParsedSubstitutable extends Substitutable {
 	
 	public String getValue() {
 		return this.value;
+	}
+	
+	public List<String> getProperties() {
+		return this.props;
 	}
 	
 	@Override

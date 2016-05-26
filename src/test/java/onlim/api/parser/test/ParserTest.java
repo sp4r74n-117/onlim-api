@@ -13,6 +13,7 @@ import com.github.jsonldjava.core.JsonLdError;
 
 import onlim.api.parser.JsonLdParser;
 import onlim.api.parser.SubstitutableGenerator;
+import onlim.api.parser.resources.ParsedSubstitutable;
 import onlim.api.parser.resources.Triple;
 
 public class ParserTest {
@@ -127,9 +128,11 @@ public class ParserTest {
 		assertEquals(false, gen.languageConstraintCheck("\"Massage and Spa\"@it"));
 	}
 	
+	
 	@Test
 	public void generator() {
-		//TODO fix test
-		assertEquals(15, gen.generateSubstitutables().size());
+		for(ParsedSubstitutable p : gen.generateSubstitutables())
+			System.out.println(p);
+		assertEquals(21, gen.generateSubstitutables().size());
 	}
 }

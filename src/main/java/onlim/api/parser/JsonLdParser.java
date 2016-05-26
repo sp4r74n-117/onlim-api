@@ -6,9 +6,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.github.jsonldjava.core.JsonLdError;
 import com.github.jsonldjava.core.JsonLdOptions;
@@ -19,7 +16,8 @@ import onlim.api.parser.resources.Triple;
 
 public class JsonLdParser {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(JsonLdParser.class);
+	//private static final Logger LOGGER = LoggerFactory.getLogger(JsonLdParser.class);
+	//TODO use logger
 
 	public JsonLdParser() {}
 

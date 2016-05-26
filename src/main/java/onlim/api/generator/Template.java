@@ -51,7 +51,7 @@ public class Template implements Cloneable {
 	 * @param substitutables substitutables to check for
 	 * @return true iff the template can be resolved
 	 */
-	public <T extends Substitutable> boolean isResolvable(final Set<T> substitutables) {
+	public <T extends Substitutable> boolean isResolvable(final List<T> substitutables) {
 		int count = 0;
 		for (final Substitutable substitutable: substitutables) {
 			if (isSubstitutable(substitutable))

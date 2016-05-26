@@ -1,26 +1,29 @@
 package onlim.api.generator.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import onlim.api.generator.Constraint;
 import onlim.api.generator.Substitutable;
 import onlim.api.generator.Template;
 import onlim.api.generator.TemplateBuilder;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class TemplateBuilderTest {
 	
 	private TemplateBuilder tb;
 	
-	private <T> Set<T> asSet(@SuppressWarnings("unchecked") T... args) {
-		final Set<T> result = new HashSet<T>();
+	private <T> List<T> asList(@SuppressWarnings("unchecked") T... args) {
+		final List<T> result = new LinkedList<T>();
 		for (final T arg : args)
 			result.add(arg);
 		return result;
@@ -118,11 +121,11 @@ public class TemplateBuilderTest {
 		assertTrue(ss1.equals(ss3));
 		assertFalse(ss1.equals(ss2));
 		assertTrue(tm.isSubstitutable(ss1));
-		assertTrue(tm.isResolvable(asSet(ss1)));
-		assertFalse(tm.isResolvable(asSet(ss2)));
-		assertTrue(tm.isResolvable(asSet(ss1, ss2)));
+		assertTrue(tm.isResolvable(asList(ss1)));
+		assertFalse(tm.isResolvable(asList(ss2)));
+		assertTrue(tm.isResolvable(asList(ss1, ss2)));
 		
-		for (final Substitutable s : asSet(ss1, ss2))
+		for (final Substitutable s : asList(ss1, ss2))
 			tm.substitute(s, "test");
 		
 		assertTrue(tm.isResolved());
