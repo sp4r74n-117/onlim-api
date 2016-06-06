@@ -13,15 +13,12 @@ import onlim.api.services.resources.OfferResource;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  */
 @ApplicationPath("/onlim-api")
 public class OnlimApiApplication extends Application{
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(OnlimApiApplication.class);
     public static final String BASE_URI = "http://localhost:8080/onlim-api/";
 
 	private final Set<Object> singletons = new HashSet<Object>();
@@ -65,7 +62,8 @@ public class OnlimApiApplication extends Application{
      * @param args
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException {
+    @SuppressWarnings("deprecation")
+	public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%s\nHit enter to stop it...", BASE_URI));
