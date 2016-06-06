@@ -13,7 +13,6 @@ import com.github.jsonldjava.core.JsonLdError;
 
 import onlim.api.parser.JsonLdParser;
 import onlim.api.parser.SubstitutableGenerator;
-import onlim.api.parser.resources.ParsedSubstitutable;
 import onlim.api.parser.resources.Triple;
 
 public class ParserTest {
