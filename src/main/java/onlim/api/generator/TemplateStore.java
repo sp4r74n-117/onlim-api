@@ -24,17 +24,38 @@ public class TemplateStore {
 	
 	private TemplateStore() {
 		this.templates = new LinkedList<>();
-		this.templates.add(newTemplate("onlim/api/generator/resources/offer.template")
+		
+		final Substitutable proName = pro("<http://schema.org/name>");
+		final Substitutable proTeaser = pro("<http://schema.org/teaser>");
+		final Substitutable proPrice = pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/price>");
+		final Substitutable proCurr = pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/priceCurrency>");
+		final Substitutable proFrom = pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/validFrom>");
+		final Substitutable proTo = pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/validThrough>");
+		final Substitutable proTarget = pro("<http://schema.org/potentialAction>", "<http://schema.org/BuyAction>", "<http://schema.org/target>");
+		final Substitutable proUrlTemplate = pro("<http://schema.org/potentialAction>", "<http://schema.org/BuyAction>", "1", "<http://schema.org/target>", "<http://schema.org/EntryPoint>", "<http://schema.org/urlTemplate:>");
+		this.templates.add(newTemplate("onlim/api/generator/resources/offer.en.template")
 			.addMetaValue("language", "en")
 			.addMetaValue("schema_type", "<http://schema.org/Offer>")
-			.addMapping("NAME", pro("<http://schema.org/name>"))
-			.addMapping("TEASER", pro("<http://schema.org/teaser>"))
-			.addMapping("PRICE", pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/price>"))
-			.addMapping("CURR", pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/priceCurrency>"))
-			.addMapping("FROM", pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/validFrom>"))
-			.addMapping("TO", pro("<http://schema.org/priceSpecification>", "<http://schema.org/PriceSpecification>", "<http://schema.org/validThrough>"))
-			.addMapping("TARGET", pro("<http://schema.org/potentialAction>", "<http://schema.org/BuyAction>", "<http://schema.org/target>"))
-			.addMapping("URL_TEMPLATE", pro("<http://schema.org/potentialAction>", "<http://schema.org/BuyAction>", "1", "<http://schema.org/target>", "<http://schema.org/EntryPoint>", "<http://schema.org/urlTemplate:>"))
+			.addMapping("NAME", proName)
+			.addMapping("TEASER", proTeaser)
+			.addMapping("PRICE", proPrice)
+			.addMapping("CURR", proCurr)
+			.addMapping("FROM", proFrom)
+			.addMapping("TO", proTo)
+			.addMapping("TARGET", proTarget)
+			.addMapping("URL_TEMPLATE", proUrlTemplate)
+			.build());
+		this.templates.add(newTemplate("onlim/api/generator/resources/offer.de.template")
+			.addMetaValue("language", "de")
+			.addMetaValue("schema_type", "<http://schema.org/Offer>")
+			.addMapping("NAME", proName)
+			.addMapping("TEASER", proTeaser)
+			.addMapping("PRICE", proPrice)
+			.addMapping("CURR", proCurr)
+			.addMapping("FROM", proFrom)
+			.addMapping("TO", proTo)
+			.addMapping("TARGET", proTarget)
+			.addMapping("URL_TEMPLATE", proUrlTemplate)
 			.build());
 	}
 	
