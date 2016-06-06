@@ -42,7 +42,9 @@ public class OfferResourceTest {
         target = c.target(OnlimApiApplication.BASE_URI);
     }
 
-    @After
+    
+	@After
+	@SuppressWarnings("deprecation")
     public void tearDown() throws Exception {
         server.stop();
     }
