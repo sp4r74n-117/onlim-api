@@ -10,6 +10,7 @@ import java.util.Set;
 import onlim.api.generator.Constraint;
 import onlim.api.parser.resources.ParsedSubstitutable;
 import onlim.api.parser.resources.Triple;
+import onlim.api.reasoner.Reasoner;
 
 public class SubstitutableGenerator {
 
@@ -103,14 +104,14 @@ public class SubstitutableGenerator {
 	}
 
 	public Constraint buildSchemaConstraint(final String expectedType) {
+		final Set<String> path = Reasoner.get().getClassPath(expectedType);
 		Constraint c = new Constraint() {
 			@Override
 			public boolean evaluate(final Map<String, Object> data) {
 				final Object value = data.get("schema_type");
 				if (value == null)
 					return false;
-
-				return value.toString().equals(expectedType);
+				return path.contains(value.toString());
 			}
 		};
 		return c;
