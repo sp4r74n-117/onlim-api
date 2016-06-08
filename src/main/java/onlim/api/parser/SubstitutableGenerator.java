@@ -45,7 +45,6 @@ public class SubstitutableGenerator {
 
 			subst.addAll(sub);
 		}
-
 		return subst;
 	}
 
@@ -64,7 +63,6 @@ public class SubstitutableGenerator {
 			List<ParsedSubstitutable> sub = new LinkedList<>();
 					
 			if (isValue(t.getObject())) {
-				// if(!languageConstraintCheck(t.getObject())) continue;
 				String lang = getLanguage(t.getObject());
 				ParsedSubstitutable substi = new ParsedSubstitutable();
 				
@@ -197,15 +195,6 @@ public class SubstitutableGenerator {
 		if (indexLang == -1 && indexType == -1)
 			return v;
 		return v.substring(0, (indexLang == -1) ? (indexType + 1) : (indexLang + 1));
-	}
-
-	public boolean languageConstraintCheck(final String v) {
-		int index = v.indexOf("\"@");
-		if (index == -1)
-			return true;
-		if (v.substring(index).equals("\"@en"))
-			return true;
-		return false;
 	}
 
 	public String getLanguage(final String v) {

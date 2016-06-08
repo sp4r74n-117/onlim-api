@@ -15,10 +15,6 @@ import com.github.jsonldjava.utils.JsonUtils;
 import onlim.api.parser.resources.Triple;
 
 public class JsonLdParser {
-
-	//private static final Logger LOGGER = LoggerFactory.getLogger(JsonLdParser.class);
-	//TODO use logger
-
 	public JsonLdParser() {}
 
 	public List<Triple> parse(final InputStream input) throws IOException, JsonLdError {
@@ -36,7 +32,7 @@ public class JsonLdParser {
 		for (String t : rdf.split("\n")) {
 			LinkedList<String> triple = new LinkedList<>(Arrays.asList(t.split(" (?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1)));
 			if (triple.size() != 4) {
-				throw new IllegalArgumentException("Error at generating tripples");
+				throw new IllegalArgumentException("Error at generating triples");
 			}
 			triple.removeLast();
 			result.add(buildTriple(triple.get(0), triple.get(1), triple.get(2)));

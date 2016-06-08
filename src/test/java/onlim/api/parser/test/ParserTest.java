@@ -119,14 +119,7 @@ public class ParserTest {
 		Triple t1 = new Triple("a", "hasValue", "\"Massage and Spa\"@en");	
 		assertEquals("\"2016-07-10T00:00:00+00:00\"" , gen.removeExtensions(t.getObject()));
 		assertEquals("\"Massage and Spa\"" , gen.removeExtensions(t1.getObject()));
-	}
-	
-	@Test
-	public void languageConstraintCheck() {
-		assertEquals(true, gen.languageConstraintCheck("\"Massage and Spa\"@en"));
-		assertEquals(false, gen.languageConstraintCheck("\"Massage and Spa\"@it"));
-	}
-	
+	}	
 	
 	@Test
 	public void generator() {
