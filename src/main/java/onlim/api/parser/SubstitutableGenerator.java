@@ -41,10 +41,12 @@ public class SubstitutableGenerator {
 	 */
 	public List<ParsedSubstitutable> generateSubstitutables() {
 		List<Triple> roots = getRoots();
+		// we don't need triples without a type
 		triples = removeTriplesWithNoType();
 		List<ParsedSubstitutable> subst = new LinkedList<>();
 		List<String> alreadyDone = new LinkedList<>();
 		for (Triple t : roots) {
+			// don't process a subject more than once
 			if (alreadyDone.contains(t.getSubject()))
 				continue;
 			List<ParsedSubstitutable> sub = new LinkedList<>();
@@ -73,13 +75,14 @@ public class SubstitutableGenerator {
 	private void generate(List<ParsedSubstitutable> subst, List<String> props, String next, Constraint c) {
 		List<Triple> trip = getAssociatedTriples(next);
 
-		// if I am a root, build a new constraint
+		// if next is a root, build a new constraint
 		if (isRoot(next))
 			c = buildSchemaConstraint(getType(next));
 		
 		Set<String> seen = new HashSet<>();
 
 		for (Triple t : trip) {
+			// copy the properties so that every recursive call has a copy
 			List<String> properties = new LinkedList<>(props);
 			if (isTypeTriple(t))
 				continue;
@@ -90,30 +93,42 @@ public class SubstitutableGenerator {
 				String lang = getLanguage(t.getObject());
 				ParsedSubstitutable substi = new ParsedSubstitutable();
 				
+				// add all properties that were so far
 				substi.addProperties(properties);
+				// if this triple is not a root add its subject to the properties
 				if (!isRoot(t))
 					substi.addProperty(getType(t.getSubject()));
 				
+				// if there is no language constraint given, check for duplicates and insert a unique ID
 				if(lang == null)
 					checkDuplicate(t.getPredicate(), seen, substi.getProperties());
+				// else add a constraint for the language
+				else
+					substi.addConstraint(buildLanguageConstraint(lang));
 				
 				substi.addProperty(t.getPredicate());
+				// remove quotes and extensions (e.g. ^^ @)
 				substi.setValue(removeQuotes(removeExtensions(t.getObject())));
+				
+				// add the root constraint (e.g. all properties belong to an Offer)
 				if (c != null)
 					substi.addConstraint(c);
-				if (lang != null) {
-					substi.addConstraint(buildLanguageConstraint(lang));
-				}
+				
 				sub.add(substi);
 			// else it is an ID to another subject
 			} else {
+				// if t is not a root add its subject to the properties
 				if (!isRoot(t))
 					properties.add(getType(t.getSubject()));
+				// again check for duplicates and insert a unique ID if so
 				checkDuplicate(t.getPredicate(), seen, properties);
 				properties.add(t.getPredicate());
+				// recursive call, because the right side is a reference to another subject
 				generate(sub, properties, t.getObject(), c);
 			}
+			// at the current property to the seen list, as we need unique substitutables
 			seen.add(t.getPredicate());
+			// add all substitutables
 			subst.addAll(sub);
 		}
 	}
