@@ -2,7 +2,6 @@ package onlim.api.parser;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -55,12 +54,12 @@ public class JsonLdParser {
 		String rdf = generateRDF(json);
 
 		for (String t : rdf.split("\n")) {
-			LinkedList<String> triple = new LinkedList<>(Arrays.asList(t.split(" (?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1)));
-			if (triple.size() != 4) {
+			// this regex simply splits the string by space, but does not split at spaces in between quotes
+			String[] triple = t.split(" (?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+			if (triple.length != 4) {
 				throw new IllegalArgumentException("Error at generating triples");
 			}
-			triple.removeLast();
-			result.add(buildTriple(triple.get(0), triple.get(1), triple.get(2)));
+			result.add(buildTriple(triple[0], triple[1], triple[2]));
 		}
 
 		return result;
