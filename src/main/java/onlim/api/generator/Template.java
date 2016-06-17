@@ -57,7 +57,7 @@ public class Template implements Cloneable {
 			if (isSubstitutable(substitutable))
 				++count;
 		}
-		return count == this.substitutables.size();
+		return count >= this.substitutables.size();
 	}
 	
 	/**
