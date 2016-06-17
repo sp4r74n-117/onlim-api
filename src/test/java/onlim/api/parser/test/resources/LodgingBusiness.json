@@ -9,7 +9,7 @@
         },
         {
           "@language":  "de",
-          "@value":  "Hotel Post ist ein traditionelles Hotel Seit 1967 in der wunderschönen Stadt Innsbruck."
+          "@value":  "Hotel Post ist ein traditionelles Hotel seit 1967 in der wunderschönen Stadt Innsbruck."
         }
    ],
   "telephone" : "0453 235289",
@@ -21,13 +21,40 @@
   "email" : "hotelpost@dummy.at",
   "address" : {
   	"@type": "PostalAddress",
-  	"addressRegion" : "Tyrol",
+  	"addressRegion":  [
+        {
+          "@language":  "en",
+          "@value":  "Tyrol"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Tirol"
+        }
+   ],
   	"postalCode" : "6020",
   	"streetAddress": "Dummystraße 56",
-  	"addressCountry" : "Austria"	
+  	"addressCountry":  [
+        {
+          "@language":  "en",
+          "@value":  "Austria"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Österreich"
+        }
+   ]
   },
-  "openingHours" : "Mo, Tu, Th, Fr, Sa, Su  08:00-22:00",
-   "schema:paymentAccepted": [
+  "schema:openingHours": [
+        {
+          "@language":  "en",
+          "@value":  "Mo, Tu, Th, Fr, Sa and Su from 08 AM to 10 PM"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Mo, Di, Do, Fr, Sa und So von 08:00 bis 22:00 Uhr"
+        }
+   ],
+  "schema:paymentAccepted": [
         {
           "@language":  "en",
           "@value":  "cash and credit card"

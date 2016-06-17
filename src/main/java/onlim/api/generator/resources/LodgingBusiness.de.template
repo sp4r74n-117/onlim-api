@@ -12,4 +12,4 @@ Angebotene Services:
 Öffnungszeiten: {OPENING}
 Adresse: {PLZ} {ADDRESS} {REGION} {COUNTRY}
 Als Zahlungsmittel akteptieren wir {PAYMENT}. Für Barzahlungen akteptieren wir nur {CURR}.
-Für mehr Information schreiben Sie uns bitte ein Email zu {EMAIL} oder rufen Sie uns einfach unter {TEL} an.
+Für mehr Information schreiben Sie uns bitte ein Email {EMAIL} oder rufen Sie uns einfach unter {TEL} an.
