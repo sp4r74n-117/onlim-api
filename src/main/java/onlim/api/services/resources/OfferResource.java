@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response.Status;
 
 import onlim.api.bridge.Bridge;
 import onlim.api.parser.JsonLdParser;
-import onlim.api.parser.resources.Triple;
+import onlim.api.parser.Triple;
 
 @Path("/")
 public class OfferResource {

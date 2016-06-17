@@ -8,9 +8,9 @@ import onlim.api.generator.Resolver;
 import onlim.api.generator.Substitutable;
 import onlim.api.generator.Template;
 import onlim.api.generator.TemplateStore;
+import onlim.api.parser.ParsedSubstitutable;
 import onlim.api.parser.SubstitutableGenerator;
-import onlim.api.parser.resources.ParsedSubstitutable;
-import onlim.api.parser.resources.Triple;
+import onlim.api.parser.Triple;
 
 /**
  * Acts as bridge between onlim.api.generator and onlim.api.parser

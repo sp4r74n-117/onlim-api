@@ -9,8 +9,6 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 import onlim.api.generator.Constraint;
-import onlim.api.parser.resources.ParsedSubstitutable;
-import onlim.api.parser.resources.Triple;
 import onlim.api.reasoner.Reasoner;
 
 /**
@@ -19,10 +17,6 @@ import onlim.api.reasoner.Reasoner;
  * the generateSubstitutables method.
  */
 public class SubstitutableGenerator {
-
-	// private static final Logger LOGGER =
-	// LoggerFactory.getLogger(SubstitutableGenerator.class);
-	// TODO use logger
 	private static final String RDF_TYPE = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>";
 	private List<Triple> triples;
 

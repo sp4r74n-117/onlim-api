@@ -1,4 +1,4 @@
-package onlim.api.parser.resources;
+package onlim.api.parser;
 
 public class Triple {
 

@@ -11,8 +11,6 @@ import com.github.jsonldjava.core.JsonLdOptions;
 import com.github.jsonldjava.core.JsonLdProcessor;
 import com.github.jsonldjava.utils.JsonUtils;
 
-import onlim.api.parser.resources.Triple;
-
 /**
  * This class parses an input file or string (in JSON LD format) and produces an application/nquads RDF, for which 
  * it generates a list of {@link Triple}
