@@ -144,6 +144,76 @@ public class TemplateStore {
 			.addMapping("SPONSOR_URL", proSponsorUrl)
 			.addMapping("START_DATE", proEventStartDate)
 			.build());
+		
+		//LodgingBusiness
+		final Substitutable proHotelName = pro("<http://schema.org/name>");
+		final Substitutable proCountry = pro("<http://schema.org/address>", "<http://schema.org/PostalAddress>", "<http://schema.org/addressCountry>");
+		final Substitutable proBusinessRegion = pro("<http://schema.org/address>", "<http://schema.org/PostalAddress>", "<http://schema.org/addressRegion>");
+		final Substitutable proPostalCode = pro("<http://schema.org/address>", "<http://schema.org/PostalAddress>", "<http://schema.org/postalCode>");
+		final Substitutable proAddress = pro("<http://schema.org/address>", "<http://schema.org/PostalAddress>", "<http://schema.org/streetAddress>");
+		final Substitutable proBestRating = pro("<http://schema.org/aggregateRating>", "<http://schema.org/AggregateRating>", "<http://schema.org/bestRating>");
+		final Substitutable proWorstRating = pro("<http://schema.org/aggregateRating>", "<http://schema.org/AggregateRating>", "<http://schema.org/worstRating>");
+		final Substitutable proRatingValue = pro("<http://schema.org/aggregateRating>", "<http://schema.org/AggregateRating>", "<http://schema.org/ratingValue>");
+		final Substitutable proRatingCount = pro("<http://schema.org/aggregateRating>", "<http://schema.org/AggregateRating>", "<http://schema.org/ratingCount>");
+		final Substitutable proAward = pro("<http://schema.org/award>");
+		final Substitutable proCurrenciesAccepted = pro("<http://schema.org/currenciesAccepted>");
+		final Substitutable proBusinessEmail = pro("<http://schema.org/email>");
+		final Substitutable proBusinessDescr = pro("<http://schema.org/description>");
+		final Substitutable proFounder = pro("<http://schema.org/founder>", "<http://schema.org/Person>", "<http://schema.org/name>");
+		final Substitutable proServiceDescr = pro("<http://schema.org/makesOffer>", "<http://schema.org/Offer>", "<http://schema.org/itemsOffered>", "<http://schema.org/Service>", "<http://schema.org/description>");
+		final Substitutable proServiceDescr2 = pro("<http://schema.org/makesOffer>", "<http://schema.org/Offer>", "1", "<http://schema.org/itemsOffered>", "<http://schema.org/Service>", "<http://schema.org/description>");
+		final Substitutable proBusinessEmployees = pro("<http://schema.org/numberOfEmployees>");
+		final Substitutable proBusinessOpening = pro("<http://schema.org/openingHours>");
+		final Substitutable proBusinessPayment = pro("<http://schema.org/paymentAccepted>");
+		final Substitutable proBusinessTel = pro("<http://schema.org/telephone>");
+		this.templates.add(newTemplate("onlim/api/generator/resources/LodgingBusiness.en.template")
+			.addMetaValue("language", "en")
+			.addMetaValue("schema_type", "<http://schema.org/LodgingBusiness>")
+			.addMapping("NAME", proHotelName)
+			.addMapping("COUNTRY", proCountry)
+			.addMapping("REGION", proBusinessRegion)
+			.addMapping("PLZ", proPostalCode)
+			.addMapping("ADDRESS", proAddress)
+			.addMapping("BEST_RATING", proBestRating)
+			.addMapping("WORST_RATING", proWorstRating)
+			.addMapping("RATING_VALUE", proRatingValue)
+			.addMapping("RATING_COUNT", proRatingCount)
+			.addMapping("AWARD", proAward)
+			.addMapping("CURR", proCurrenciesAccepted)
+			.addMapping("EMAIL", proBusinessEmail)
+			.addMapping("DESCR", proBusinessDescr)
+			.addMapping("FOUNDER", proFounder)
+			.addMapping("SERVICE_DESCR", proServiceDescr)
+			.addMapping("SERVICE_DESCR2", proServiceDescr2)
+			.addMapping("EMPLOYEES", proBusinessEmployees)
+			.addMapping("OPENING", proBusinessOpening)
+			.addMapping("PAYMENT", proBusinessPayment)
+			.addMapping("TEL", proBusinessTel)
+			.build());
+		this.templates.add(newTemplate("onlim/api/generator/resources/LodgingBusiness.de.template")
+			.addMetaValue("language", "de")
+			.addMetaValue("schema_type", "<http://schema.org/LodgingBusiness>")
+			.addMapping("NAME", proHotelName)
+			.addMapping("COUNTRY", proCountry)
+			.addMapping("REGION", proBusinessRegion)
+			.addMapping("PLZ", proPostalCode)
+			.addMapping("ADDRESS", proAddress)
+			.addMapping("BEST_RATING", proBestRating)
+			.addMapping("WORST_RATING", proWorstRating)
+			.addMapping("RATING_VALUE", proRatingValue)
+			.addMapping("RATING_COUNT", proRatingCount)
+			.addMapping("AWARD", proAward)
+			.addMapping("CURR", proCurrenciesAccepted)
+			.addMapping("EMAIL", proBusinessEmail)
+			.addMapping("DESCR", proBusinessDescr)
+			.addMapping("FOUNDER", proFounder)
+			.addMapping("SERVICE_DESCR", proServiceDescr)
+			.addMapping("SERVICE_DESCR2", proServiceDescr2)
+			.addMapping("EMPLOYEES", proBusinessEmployees)
+			.addMapping("OPENING", proBusinessOpening)
+			.addMapping("PAYMENT", proBusinessPayment)
+			.addMapping("TEL", proBusinessTel)
+			.build());
 	}
 	
 	public <T extends Substitutable> List<Template> resolve(final List<T> substitutables, final Resolver resolver) throws Exception {

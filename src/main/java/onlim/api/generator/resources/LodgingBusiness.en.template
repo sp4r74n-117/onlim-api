@@ -1,0 +1,15 @@
+The {NAME} founded by {FOUNDER} is located in {REGION} {COUNTRY} and has 2 new special services to offer.
+{DESCR}
+{EMPLOYEES} employees are currently working at {NAME} and will ensure a comfortable stay.
+{NAME} is rated with {RATING_VALUE} points in a scala from {WORST_RATING} to {BEST_RATING} with {RATING_COUNT} ratings.
+{NAME} was awarded with "{AWARD}".
+
+The offered service are:
+
+1) {SERVICE_DESCR}
+2) {SERVICE_DESCR2}
+
+Opening Hours: {OPENING}
+Location Information: {PLZ} {ADDRESS} {REGION} {COUNTRY}
+Payment can be done via {PAYMENT}. For cash we accept {CURR} only.
+For more information please write as an email to {EMAIL} or simply call us under {TEL}

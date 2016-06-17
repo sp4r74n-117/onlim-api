@@ -1,0 +1,15 @@
+Das {NAME} gegründet von {FOUNDER} liegt in {REGION} {COUNTRY} und bietet 2 neue Angebote an.
+{DESCR}
+{EMPLOYEES} Mitarbeiter arbeiten zur Zeit bei {NAME} und werden für einen angenehmen Aufenthalt sorgen.
+{NAME} wurde mit {RATING_VALUE} Punkten in einer Skala von {WORST_RATING} bis {BEST_RATING} mit {RATING_COUNT} Stimmen gewertet.
+{NAME} wurde der Award "{AWARD}" verliehen.
+
+Angebotene Services:
+
+1) {SERVICE_DESCR}
+2) {SERVICE_DESCR2}
+
+Öffnungszeiten: {OPENING}
+Adresse: {PLZ} {ADDRESS} {REGION} {COUNTRY}
+Als Zahlungsmittel akteptieren wir {PAYMENT}. Für Barzahlungen akteptieren wir nur {CURR}.
+Für mehr Information schreiben Sie uns bitte ein Email zu {EMAIL} oder rufen Sie uns einfach unter {TEL} an.

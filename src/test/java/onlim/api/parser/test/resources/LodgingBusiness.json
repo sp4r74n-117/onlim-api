@@ -1,0 +1,89 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "LodgingBusiness",
+  "name": "Hotel Post",
+  "schema:description":  [
+        {
+          "@language":  "en",
+          "@value":  "Hotel Post is a traditional hotel since 1967 and located in the beautiful city Innsbruck."
+        },
+        {
+          "@language":  "de",
+          "@value":  "Hotel Post ist ein traditionelles Hotel Seit 1967 in der wunderschönen Stadt Innsbruck."
+        }
+   ],
+  "telephone" : "0453 235289",
+  "numberOfEmployees" : "45",
+  "founder" : {
+  	"@type": "Person",
+  	"name": "Max Mustermann"
+  },
+  "email" : "hotelpost@dummy.at",
+  "address" : {
+  	"@type": "PostalAddress",
+  	"addressRegion" : "Tyrol",
+  	"postalCode" : "6020",
+  	"streetAddress": "Dummystraße 56",
+  	"addressCountry" : "Austria"	
+  },
+  "openingHours" : "Mo, Tu, Th, Fr, Sa, Su  08:00-22:00",
+   "schema:paymentAccepted": [
+        {
+          "@language":  "en",
+          "@value":  "cash and credit card"
+        },
+        {
+          "@language":  "de",
+          "@value":  "bar und Kreditkarte"
+        }
+   ],
+  "currenciesAccepted" : "EUR",
+  "aggregateRating" : {
+  	"@type" : "AggregateRating",
+  	"ratingCount" : "2743",
+  	"bestRating" : "10",
+  	"worstRating" : "1",
+  	"ratingValue" : "9"
+  },
+  "schema:award": [
+        {
+          "@language":  "en",
+          "@value":  "Best hotel of Austria in 2015"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Bestes Hotel in Österreich 2015"
+        }
+   ],
+   "makesOffer" : {
+   	"@type": "Offer",
+   	"itemsOffered" : [
+   		{
+   			"@type": "Service",
+   			"schema:description": [
+        		{
+          			"@language":  "en",
+          			"@value":  "Seven days full pension (including breakfast, lunch and dinner for only 400 EUR per person."
+        		},
+        		{
+          			"@language":  "de",
+          			"@value":  "7 tage Vollpension (Frühstück, Mittag und Abendsessen inkludiert) für nur 400 EUR pro Person."
+       			 }
+       		]      					
+   		},
+   		{
+   			"@type": "Service",
+   			"schema:description": [
+        		{
+          			"@language":  "en",
+          			"@value":  "2 weeks vacation for a family (4 person), half pension (breakfast and dinner) for only 1700 EUR."
+        		},
+        		{
+          			"@language":  "de",
+          			"@value":  "2 Wochen Urlaub für eine ganze Familie (4 Personen), Halbpension (Frühstück und Abendessen) für nur 1700 EUR."
+       			 }
+       		] 		
+   		}
+   	] 
+   }
+}
