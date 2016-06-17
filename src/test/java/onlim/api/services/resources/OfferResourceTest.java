@@ -61,7 +61,8 @@ public class OfferResourceTest {
 		final String[] resources = {
 			"onlim/api/parser/test/resources/offer.json",
 			"onlim/api/parser/test/resources/event.json",
-			"onlim/api/parser/test/resources/LodgingBusiness.json"
+			"onlim/api/parser/test/resources/LodgingBusiness.json",
+			"onlim/api/parser/test/resources/restaurant.json"
 		};
 		for (final String resource : resources) {
 			postJson(resource);

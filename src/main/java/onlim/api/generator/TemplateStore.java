@@ -214,6 +214,23 @@ public class TemplateStore {
 			.addMapping("PAYMENT", proBusinessPayment)
 			.addMapping("TEL", proBusinessTel)
 			.build());
+		
+		// schema.org/Restaurant
+		this.templates.add(newTemplate("onlim/api/generator/resources/restaurant.en.template")
+			.addMetaValue("language", "en")
+			.addMetaValue("schema_type", "<http://schema.org/Restaurant>")
+			.addMapping("NAME", proName)
+			.addMapping("CUISINE", pro("<http://schema.org/servesCuisine>"))
+			.addMapping("URL", pro("<http://schema.org/url>"))
+			.build());
+		
+		this.templates.add(newTemplate("onlim/api/generator/resources/restaurant.de.template")
+			.addMetaValue("language", "de")
+			.addMetaValue("schema_type", "<http://schema.org/Restaurant>")
+			.addMapping("NAME", proName)
+			.addMapping("CUISINE", pro("<http://schema.org/servesCuisine>"))
+			.addMapping("URL", pro("<http://schema.org/url>"))
+			.build());
 	}
 	
 	public <T extends Substitutable> List<Template> resolve(final List<T> substitutables, final Resolver resolver) throws Exception {
