@@ -15,7 +15,7 @@ import onlim.api.parser.JsonLdParser;
 import onlim.api.parser.Triple;
 
 @Path("/")
-public class OfferResource {
+public class OnlimResource {
 	@GET
 	public String getOffers() {
 		return "Online";

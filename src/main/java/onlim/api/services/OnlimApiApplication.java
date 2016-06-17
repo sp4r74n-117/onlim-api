@@ -8,7 +8,7 @@ import java.net.URI;
 import java.util.HashSet;
 import java.util.Set;
 
-import onlim.api.services.resources.OfferResource;
+import onlim.api.services.resources.OnlimResource;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -43,7 +43,7 @@ public class OnlimApiApplication extends Application{
 		//singletons.add(XY);
 
 		//resources
-		classes.add(OfferResource.class);
+		classes.add(OnlimResource.class);
 
 	}
 

@@ -23,7 +23,7 @@ import org.junit.Test;
 
 import onlim.api.services.OnlimApiApplication;
 
-public class OfferResourceTest {
+public class OnlimResourceTest {
 	private HttpServer server;
 	private WebTarget target;
 	
