@@ -1,0 +1,65 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "Event",
+  "schema:name":  [
+        {
+          "@language":  "en",
+          "@value":  "The Missoula Marathon"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Der Missoula Marathon"
+        }
+   ],
+  "sponsor": {
+    "@type": "Organization",
+    "name": "Run Wild Missoula",
+    "url": "http://www.runwildmissoula.org/"
+        },
+  "startDate": "2016-07-10T06:00",
+  "offers": [
+    {
+      "@type": "Offer",
+      "url": "http://www.runwildmissoula.org/runwild/index.php/ID/mmar2016/fuseaction/register.main.htm",
+      "validFrom": "2015-10-01T00:01",
+      "validThrough": "2016-01-31T23:59",
+      "price": "85.00",
+      "priceCurrency": "USD"
+    },{
+      "@type": "Offer",
+      "url": "http://www.runwildmissoula.org/runwild/index.php/ID/mmar2016/fuseaction/register.main.htm",
+      "validFrom": "2016-02-01T00:01",
+      "validThrough": "2016-06-14T23:59",
+      "price": "95.00",
+      "priceCurrency": "USD"
+    },{
+      "@type": "Offer",
+      "url": "http://www.runwildmissoula.org/runwild/index.php/ID/mmar2016/fuseaction/register.main.htm",
+      "validFrom": "2016-06-15T00:01",
+      "validThrough": "2016-07-09T23:59",
+      "price": "125.00",
+      "priceCurrency": "USD"
+    }
+    ],
+    "schema:description":  [
+        {
+          "@language":  "en",
+          "@value":  "The Missoula Marathon course is flat, fast, USATF certified, and a Boston Qualifier! The marathon course does have a significant hill at the halfway point. The course is a point-to-point, beginning with a scenic route through the countryside and finishing in historic downtown Missoula. The marathon course is well marked with both cones and arrows on the road. You will notice every mile is marked on the road and with 8ft tall mile markers. Wheelchair and Handcycle: We are pleased to offer wheelchair and handcycle divisions in the 2016 Full and Half Marathon."
+        },
+        {
+          "@language":  "de",
+          "@value":  "Der Missoula Marathon Kurs ist flach , schnell, USATF zertifiziert und ein Boston Qualifier ! Die Marathon-Strecke hat einen bedeutenden Hügel auf halbem Weg haben . Der Kurs ein Punkt -zu-Punkt ist , mit einer landschaftlich schöne Strecke durch die Landschaft beginnt und . in der historischen Innenstadt Finishing Missoula die Marathon-Strecke ist gut mit den beiden Kegeln und Pfeile auf der Straße markiert Sie werden feststellen, ist jede Meile auf der Straße markiert und mit 8 Fuß hoch Meile Marker Rollstuhl und Handcycle : Wir freuen uns, Rollstuhl und Handbike zu bieten Spaltungen in der 2016 Voll- und Halbmarathon ."
+        }
+   ],
+  "location": {
+    "@type": "Place",
+    "name": "Missoula, MT",
+    "url": "http://www.ci.missoula.mt.us/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Missoula",
+      "addressRegion": "MT"
+    },
+    "hasMap": "http://www.missoulamarathon.org/wp-content/uploads/2015/06/2015-MM-Course-Map-V1-6-2-15.png"
+    }
+}

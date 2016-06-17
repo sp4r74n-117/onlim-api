@@ -1,7 +1,6 @@
 package onlim.api.parser;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +78,7 @@ public class SubstitutableGenerator {
 		if (isRoot(next))
 			c = buildSchemaConstraint(getType(next));
 		
-		Set<String> seen = new HashSet<>();
+		List<String> seen = new LinkedList<>();
 
 		for (Triple t : trip) {
 			// copy the properties so that every recursive call has a copy
@@ -127,7 +126,8 @@ public class SubstitutableGenerator {
 				generate(sub, properties, t.getObject(), c);
 			}
 			// at the current property to the seen list, as we need unique substitutables
-			seen.add(t.getPredicate());
+			if(!seen.contains(t.getPredicate()))
+				seen.add(t.getPredicate());
 			// add all substitutables
 			subst.addAll(sub);
 		}
@@ -140,9 +140,10 @@ public class SubstitutableGenerator {
 	 * @param props - current properties
 	 * @return
 	 */
-	private boolean checkDuplicate(final String dup, final Set<String> seen, List<String> props) {
+	private boolean checkDuplicate(final String dup, final List<String> seen, List<String> props) {
 		if(seen.contains(dup)) {
 			props.add(String.valueOf(Collections.frequency(seen, dup)));
+			seen.add(dup);
 			return true;
 		}
 		return false;

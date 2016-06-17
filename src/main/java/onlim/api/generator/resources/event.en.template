@@ -1,0 +1,16 @@
+The event {NAME} sponsored by {SPONSOR_NAME} ({SPONSOR_URL}) starts on {START_DATE}.
+{DESC}
+It will take place in {LOC} {REGION} (see the map: {PLACE_MAP}) and get more details to this location at {PLACE_URL}.
+It provides three different kinds of offers:
+
+1) {OFFER_URL}
+
+This offer is valid from {OFFER_VALIDFROM} to {OFFER_VALIDTHROUGH} and costs {OFFER_PRICE} {OFFER_CURR}.
+
+2) {OFFER_1_URL}
+
+This offer is valid from {OFFER_1_VALIDFROM} to {OFFER_1_VALIDTHROUGH} and costs {OFFER_1_PRICE} {OFFER_1_CURR}.
+
+3) {OFFER_2_URL}
+
+This offer is valid from {OFFER_2_VALIDFROM} to {OFFER_2_VALIDTHROUGH} and costs {OFFER_2_PRICE} {OFFER_2_CURR}.

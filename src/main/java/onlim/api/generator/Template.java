@@ -67,13 +67,14 @@ public class Template implements Cloneable {
 	 * @return true iff the substitutable is mapped to the template
 	 */
 	public boolean isSubstitutable(final Substitutable substitutable) {
-		if (!substitutable.isSatisfiable(getMetaValues()))
+		if (!substitutable.isSatisfiable(getMetaValues())) {
 			return false;
+		}
 
 		for (final Entry<String, Substitutable> e : this.substitutables.entrySet()) {
 			if (e.getValue().equals(substitutable))
 				return true;
-		}
+		}		
 		return false;
 	}
 

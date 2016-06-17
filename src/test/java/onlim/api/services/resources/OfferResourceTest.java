@@ -58,7 +58,7 @@ public class OfferResourceTest {
 
 	@Test 
 	public void testJsonPost() throws IOException {
-		InputStream jsonFile = getClass().getClassLoader().getResourceAsStream("onlim/api/parser/test/resources/input.json");
+		InputStream jsonFile = getClass().getClassLoader().getResourceAsStream("onlim/api/parser/test/resources/offer.json");
 		Scanner scanner = new Scanner(jsonFile);
 
 		URL url = new URL(OnlimApiApplication.BASE_URI);

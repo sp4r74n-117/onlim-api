@@ -13,6 +13,7 @@ import com.github.jsonldjava.core.JsonLdError;
 
 import onlim.api.parser.JsonLdParser;
 import onlim.api.parser.SubstitutableGenerator;
+import onlim.api.parser.resources.ParsedSubstitutable;
 import onlim.api.parser.resources.Triple;
 
 public class ParserTest {
@@ -25,7 +26,7 @@ public class ParserTest {
 	public void setUp() {
 		parser = new JsonLdParser();
 		try {
-			triples = parser.parse(getClass().getClassLoader().getResourceAsStream("onlim/api/parser/test/resources/input.json"));
+			triples = parser.parse(getClass().getClassLoader().getResourceAsStream("onlim/api/parser/test/resources/offer.json"));
 		} catch (IOException | JsonLdError e) {
 			e.printStackTrace();
 		}
@@ -123,6 +124,9 @@ public class ParserTest {
 	
 	@Test
 	public void generator() {
-		assertEquals(21, gen.generateSubstitutables().size());
+		//assertEquals(21, gen.generateSubstitutables().size());
+		for(ParsedSubstitutable p : gen.generateSubstitutables()) {
+			System.out.println(p);
+		}
 	}
 }
