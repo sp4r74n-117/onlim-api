@@ -62,7 +62,8 @@ public class OnlimResourceTest {
 			"onlim/api/parser/test/resources/offer.json",
 			"onlim/api/parser/test/resources/event.json",
 			"onlim/api/parser/test/resources/LodgingBusiness.json",
-			"onlim/api/parser/test/resources/restaurant.json"
+			"onlim/api/parser/test/resources/restaurant.json",
+			"onlim/api/parser/test/resources/touristattraction.json"
 		};
 		for (final String resource : resources) {
 			postJson(resource);

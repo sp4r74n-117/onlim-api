@@ -1,0 +1,40 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "TouristAttraction",
+  "name": "Goldenes Dachl",
+  "schema:description":  [
+        {
+          "@language":  "en",
+          "@value":  "The Goldenes Dachl (Golden Roof) is a landmark structure located in the Old Town (Altstadt) section of Innsbruck, Austria. It is considered the city's most famous symbol."
+        },
+        {
+          "@language":  "de",
+          "@value":  "Das Goldene Dachl ist ein Gebäude mit spätgotischem Prunkerker in der Innsbrucker Altstadt und gilt als Wahrzeichen der Stadt. Das Dach des Erkers wurde mit 2.657 feuervergoldeten Kupferschindeln gedeckt."
+        }
+   ],
+  "address" : {
+  	"@type": "PostalAddress",
+  	"addressRegion":  [
+        {
+          "@language":  "en",
+          "@value":  "Tyrol"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Tirol"
+        }
+   ],
+  	"postalCode" : "6020",
+  	"streetAddress": "Herzog-Friedrich",
+  	"addressCountry":  [
+        {
+          "@language":  "en",
+          "@value":  "Austria"
+        },
+        {
+          "@language":  "de",
+          "@value":  "Österreich"
+        }
+   ]
+  }
+}
