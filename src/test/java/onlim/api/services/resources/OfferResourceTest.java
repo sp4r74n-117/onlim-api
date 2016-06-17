@@ -58,7 +58,18 @@ public class OfferResourceTest {
 
 	@Test 
 	public void testJsonPost() throws IOException {
-		InputStream jsonFile = getClass().getClassLoader().getResourceAsStream("onlim/api/parser/test/resources/offer.json");
+		final String[] resources = {
+			"onlim/api/parser/test/resources/offer.json",
+			"onlim/api/parser/test/resources/event.json",
+			"onlim/api/parser/test/resources/LodgingBusiness.json"
+		};
+		for (final String resource : resources) {
+			postJson(resource);
+		}
+	}
+	
+	private void postJson(final String resource) throws IOException {
+		InputStream jsonFile = getClass().getClassLoader().getResourceAsStream(resource);
 		Scanner scanner = new Scanner(jsonFile);
 
 		URL url = new URL(OnlimApiApplication.BASE_URI);
@@ -74,15 +85,12 @@ public class OfferResourceTest {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-		System.out.println("Reading Response!");
 		String response;
 		StringBuilder returnStr = new StringBuilder();
 		while ((response = in.readLine()) != null) {
-			System.out.println(response);
 			returnStr.append(response);
 		}
-		assertTrue("Failed to get a response", returnStr.length() > 0);
-		System.out.println("\nREST Service Successfully..");
 		in.close();
+		assertTrue(returnStr.length() > 0);
 	}
 }
