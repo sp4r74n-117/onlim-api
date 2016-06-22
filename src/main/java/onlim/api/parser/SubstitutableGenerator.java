@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
@@ -69,7 +68,7 @@ public class SubstitutableGenerator {
 		List<Triple> trip = getAssociatedTriples(next);
 
 		// if next is a root, build a new constraint
-		if (isRoot(next))
+		if (isRoot(next)) 
 			c = buildSchemaConstraint(getType(next));
 		
 		List<String> seen = new LinkedList<>();
@@ -150,7 +149,7 @@ public class SubstitutableGenerator {
 	 * @return {@link Constraint}
 	 */
 	private Constraint buildSchemaConstraint(final String expectedType) {
-		final Set<String> path = Reasoner.get().getClassPath(expectedType);
+		final List<String> path = Reasoner.get().getClassPath(expectedType);
 		Constraint c = new Constraint() {
 			@Override
 			public boolean evaluate(final Map<String, Object> data) {
@@ -240,11 +239,23 @@ public class SubstitutableGenerator {
 	 * @return type
 	 */
 	public String getType(final String id) {
+		List<String> actualClassPath = null;
+		Reasoner reasoner = Reasoner.get();
 		for (Triple t : getAssociatedTriples(id)) {
-			if (t.getPredicate().equals(RDF_TYPE))
-				return t.getObject();
+			if (t.getPredicate().equals(RDF_TYPE)) {
+				List<String> classPath = reasoner.getClassPath(t.getObject());
+				if(classPath.isEmpty()) continue;
+				if(actualClassPath == null) {
+					actualClassPath = classPath;
+					continue;
+				}				
+				if(actualClassPath.containsAll(classPath)) continue;				
+				actualClassPath = classPath;
+			}
 		}
-		return null;
+		if(actualClassPath == null)
+			throw new IllegalArgumentException("No valid type found");
+		return actualClassPath.get(0);
 	}
 
 	

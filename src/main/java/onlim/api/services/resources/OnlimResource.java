@@ -10,6 +10,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.apache.commons.lang3.StringUtils;
+
 import onlim.api.bridge.Bridge;
 import onlim.api.parser.JsonLdParser;
 import onlim.api.parser.Triple;
@@ -28,7 +30,7 @@ public class OnlimResource {
 		Status status = Status.OK;
 		try {
 			final List<Triple> triples = new JsonLdParser().parse(is);
-			entity = String.join("\n", Bridge.gen(triples));
+			entity = StringUtils.join(Bridge.gen(triples), "\n\n");
 		} catch (final Exception e) {
 			e.printStackTrace();
 			entity = e.getMessage();

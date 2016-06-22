@@ -123,6 +123,8 @@ public class ParserTest {
 	
 	@Test
 	public void generator() {
+		//for(ParsedSubstitutable p : gen.generateSubstitutables())
+		//	System.out.println(p);			
 		assertEquals(21, gen.generateSubstitutables().size());
 	}
 }

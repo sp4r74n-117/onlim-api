@@ -1,8 +1,10 @@
 package onlim.api.generator;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -52,12 +54,19 @@ public class Template implements Cloneable {
 	 * @return true iff the template can be resolved
 	 */
 	public <T extends Substitutable> boolean isResolvable(final List<T> substitutables) {
-		int count = 0;
-		for (final Substitutable substitutable: substitutables) {
-			if (isSubstitutable(substitutable))
-				++count;
+		final Collection<Substitutable> remaining = new LinkedList<Substitutable>(this.substitutables.values());
+		// fast-path return
+		if (remaining.isEmpty()) {
+			return false;
 		}
-		return count >= this.substitutables.size();
+		// continue with the standard algo
+		for (final Substitutable substitutable: substitutables) {
+			if (isSubstitutable(substitutable)) {
+				// remove this one from the list of remaining objects
+				remaining.remove(substitutable);
+			}
+		}
+		return remaining.isEmpty();
 	}
 	
 	/**
@@ -126,7 +135,7 @@ public class Template implements Cloneable {
 			LOGGER.debug("invalid attempt to subsitute invalid substitutable: " + substitutable.toString());
 			return this;
 		}
-		
+
 		final Set<String> processed = new HashSet<>();
 		for (final Entry<String, Substitutable> e : this.substitutables.entrySet()) {
 			if (!e.getValue().equals(substitutable))

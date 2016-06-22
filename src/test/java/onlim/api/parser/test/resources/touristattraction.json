@@ -1,7 +1,9 @@
 {
-  "@context": "http://schema.org/",
-  "@type": "TouristAttraction",
-  "name": "Goldenes Dachl",
+  "@context": {
+  	"schema":  "http://schema.org/"
+  },
+  "@type": "schema:TouristAttraction",
+  "schema:name": "Goldenes Dachl",
   "schema:description":  [
         {
           "@language":  "en",
@@ -9,12 +11,12 @@
         },
         {
           "@language":  "de",
-          "@value":  "Das Goldene Dachl ist ein Gebäude mit spätgotischem Prunkerker in der Innsbrucker Altstadt und gilt als Wahrzeichen der Stadt. Das Dach des Erkers wurde mit 2.657 feuervergoldeten Kupferschindeln gedeckt."
+          "@value":  "Das Goldene Dachl ist ein Gebï¿½ude mit spï¿½tgotischem Prunkerker in der Innsbrucker Altstadt und gilt als Wahrzeichen der Stadt. Das Dach des Erkers wurde mit 2.657 feuervergoldeten Kupferschindeln gedeckt."
         }
    ],
-  "address" : {
-  	"@type": "PostalAddress",
-  	"addressRegion":  [
+  "schema:address" : {
+  	"@type": "schema:PostalAddress",
+  	"schema:addressRegion":  [
         {
           "@language":  "en",
           "@value":  "Tyrol"
@@ -24,16 +26,16 @@
           "@value":  "Tirol"
         }
    ],
-  	"postalCode" : "6020",
-  	"streetAddress": "Herzog-Friedrich",
-  	"addressCountry":  [
+  	"schema:postalCode" : "6020",
+  	"schema:streetAddress": "Herzog-Friedrich",
+  	"schema:addressCountry":  [
         {
           "@language":  "en",
           "@value":  "Austria"
         },
         {
           "@language":  "de",
-          "@value":  "Österreich"
+          "@value":  "ï¿½sterreich"
         }
    ]
   }

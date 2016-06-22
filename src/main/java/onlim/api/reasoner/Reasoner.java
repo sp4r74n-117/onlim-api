@@ -2,9 +2,9 @@ package onlim.api.reasoner;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
@@ -47,9 +47,11 @@ public class Reasoner {
 	 * @param name Class to resolve
 	 * @return
 	 */
-	public Set<String> getClassPath(final String name) {
-		final Set<String> result = new HashSet<String>();
-		collectVertices(name, result);
+	public List<String> getClassPath(final String name) {
+		final List<String> result = new LinkedList<String>();
+		if(this.graph.containsVertex(name)) {
+			collectVertices(name, result);
+		}
 		return result;
 	}
 	/**
@@ -58,9 +60,10 @@ public class Reasoner {
 	 * @param vertex current vertex to process
 	 * @param result current result set
 	 */
-	private void collectVertices(final String vertex, final Set<String> result) {
+	private void collectVertices(final String vertex, final List<String> result) {
 		// add the vertex itself to the result set
-		result.add(vertex);		
+		if(!result.contains(vertex))
+			result.add(vertex);	
 		for (final DefaultEdge edge : this.graph.outgoingEdgesOf(vertex)) {
 			collectVertices(this.graph.getEdgeTarget(edge), result);
 		}

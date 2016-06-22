@@ -1,7 +1,9 @@
 {
-  "@context": "http://schema.org/",
-  "@type": "LodgingBusiness",
-  "name": "Hotel Post",
+  "@context": {
+  	"schema":  "http://schema.org/"
+  },
+  "@type": "schema:LodgingBusiness",
+  "schema:name": "Hotel Post",
   "schema:description":  [
         {
           "@language":  "en",
@@ -12,16 +14,16 @@
           "@value":  "Hotel Post ist ein traditionelles Hotel seit 1967 in der wunderschönen Stadt Innsbruck."
         }
    ],
-  "telephone" : "0453 235289",
-  "numberOfEmployees" : "45",
-  "founder" : {
-  	"@type": "Person",
-  	"name": "Max Mustermann"
+  "schema:telephone" : "0453 235289",
+  "schema:numberOfEmployees" : "45",
+  "schema:founder" : {
+  	"@type": "schema:Person",
+  	"schema:name": "Max Mustermann"
   },
-  "email" : "hotelpost@dummy.at",
-  "address" : {
-  	"@type": "PostalAddress",
-  	"addressRegion":  [
+  "schema:email" : "hotelpost@dummy.at",
+  "schema:address" : {
+  	"@type": "schema:PostalAddress",
+  	"schema:addressRegion":  [
         {
           "@language":  "en",
           "@value":  "Tyrol"
@@ -31,9 +33,9 @@
           "@value":  "Tirol"
         }
    ],
-  	"postalCode" : "6020",
-  	"streetAddress": "Dummystraße 56",
-  	"addressCountry":  [
+  	"schema:postalCode" : "6020",
+  	"schema:streetAddress": "Dummystraße 56",
+  	"schema:addressCountry":  [
         {
           "@language":  "en",
           "@value":  "Austria"
@@ -64,13 +66,13 @@
           "@value":  "bar und Kreditkarte"
         }
    ],
-  "currenciesAccepted" : "EUR",
-  "aggregateRating" : {
-  	"@type" : "AggregateRating",
-  	"ratingCount" : "2743",
-  	"bestRating" : "10",
-  	"worstRating" : "1",
-  	"ratingValue" : "9"
+  "schema:currenciesAccepted" : "EUR",
+  "schema:aggregateRating" : {
+  	"@type" : "schema:AggregateRating",
+  	"schema:ratingCount" : "2743",
+  	"schema:bestRating" : "10",
+  	"schema:worstRating" : "1",
+  	"schema:ratingValue" : "9"
   },
   "schema:award": [
         {
@@ -82,11 +84,11 @@
           "@value":  "Bestes Hotel in Österreich 2015"
         }
    ],
-   "makesOffer" : {
-   	"@type": "Offer",
-   	"itemsOffered" : [
+   "schema:makesOffer" : {
+   	"@type": "schema:Offer",
+   	"schema:itemsOffered" : [
    		{
-   			"@type": "Service",
+   			"@type": "schema:Service",
    			"schema:description": [
         		{
           			"@language":  "en",
@@ -99,7 +101,7 @@
        		]      					
    		},
    		{
-   			"@type": "Service",
+   			"@type": "schema:Service",
    			"schema:description": [
         		{
           			"@language":  "en",

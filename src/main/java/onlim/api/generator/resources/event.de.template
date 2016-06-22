@@ -1,18 +1,17 @@
 Das Event {NAME} gesponsert von {SPONSOR_NAME} ({SPONSOR_URL}) startet am {START_DATE}.
 {DESC}
-Es wird in {LOC} {REGION} stattfinden (auch zu finden auf der Karte: {PLACE_MAP}. Mehr Informationen zu diesem Ort können Sie unter {PLACE_URL} finden.
+Es wird in {LOC} {REGION} stattfinden (auch zu finden auf der Karte: {PLACE_MAP}. Mehr Informationen zu diesem Ort kï¿½nnen Sie unter {PLACE_URL} finden.
 
-
-Diese 3 Angebote können ausgewählt werden:
+Diese 3 Angebote kï¿½nnen ausgewï¿½hlt werden:
 
 1) {OFFER_URL}
 
-Diese Angebot ist gültig von {OFFER_VALIDFROM} bis {OFFER_VALIDTHROUGH} und kostet {OFFER_PRICE} {OFFER_CURR}.
+Diese Angebot ist gï¿½ltig von {OFFER_VALIDFROM} bis {OFFER_VALIDTHROUGH} und kostet {OFFER_PRICE} {OFFER_CURR}.
 
 2) {OFFER_1_URL}
 
-Diese Angebot ist gültig von {OFFER_1_VALIDFROM} bis {OFFER_1_VALIDTHROUGH} und kostet {OFFER_1_PRICE} {OFFER_1_CURR}.
+Diese Angebot ist gï¿½ltig von {OFFER_1_VALIDFROM} bis {OFFER_1_VALIDTHROUGH} und kostet {OFFER_1_PRICE} {OFFER_1_CURR}.
 
 3) {OFFER_2_URL}
 
-Diese Angebot ist gültig von {OFFER_2_VALIDFROM} bis {OFFER_2_VALIDTHROUGH} und kostet {OFFER_2_PRICE} {OFFER_2_CURR}.
+Diese Angebot ist gï¿½ltig von {OFFER_2_VALIDFROM} bis {OFFER_2_VALIDTHROUGH} und kostet {OFFER_2_PRICE} {OFFER_2_CURR}.
