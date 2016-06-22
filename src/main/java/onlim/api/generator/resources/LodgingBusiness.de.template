@@ -1,6 +1,6 @@
-Das {NAME} gegründet von {FOUNDER} liegt in {REGION} {COUNTRY} und bietet 2 neue Angebote an.
+Das {NAME} gegrÃ¼ndet von {FOUNDER} liegt in {REGION} {COUNTRY} und bietet 2 neue Angebote an.
 {DESCR}
-{EMPLOYEES} Mitarbeiter arbeiten zur Zeit bei {NAME} und werden für einen angenehmen Aufenthalt sorgen.
+{EMPLOYEES} Mitarbeiter arbeiten zur Zeit bei {NAME} und werden fÃ¼r einen angenehmen Aufenthalt sorgen.
 {NAME} wurde mit {RATING_VALUE} Punkten in einer Skala von {WORST_RATING} bis {BEST_RATING} mit {RATING_COUNT} Stimmen gewertet.
 {NAME} wurde der Award "{AWARD}" verliehen.
 
@@ -9,7 +9,7 @@ Angebotene Services:
 1) {SERVICE_DESCR}
 2) {SERVICE_DESCR2}
 
-Öffnungszeiten: {OPENING}
+Ã–ffnungszeiten: {OPENING}
 Adresse: {PLZ} {ADDRESS} {REGION} {COUNTRY}
-Als Zahlungsmittel akteptieren wir {PAYMENT}. Für Barzahlungen akteptieren wir nur {CURR}.
-Für mehr Information schreiben Sie uns bitte ein Email {EMAIL} oder rufen Sie uns einfach unter {TEL} an.
+Als Zahlungsmittel akteptieren wir {PAYMENT}. FÃ¼r Barzahlungen akteptieren wir nur {CURR}.
+FÃ¼r mehr Information schreiben Sie uns bitte ein Email {EMAIL} oder rufen Sie uns einfach unter {TEL} an.
