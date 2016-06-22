@@ -1,0 +1,139 @@
+{
+  "@graph" : [ {
+    "@id" : "_:b0",
+    "http://schema.org/latitude" : 13.0403,
+    "http://schema.org/longitude" : 47.911,
+    "@type" : "http://schema.org/GeoCoordinates"
+  }, {
+    "@id" : "_:b1",
+    "http://schema.org/latitude" : 13.04,
+    "http://schema.org/longitude" : 47.999,
+    "@type" : "http://schema.org/GeoCoordinates"
+  }, {
+    "@id" : "_:b2",
+    "http://schema.org/latitude" : 13.015,
+    "http://schema.org/longitude" : 47.899,
+    "@type" : "http://schema.org/GeoCoordinates"
+  }, {
+    "@id" : "_:b3",
+    "http://schema.org/latitude" : 13.099,
+    "http://schema.org/longitude" : 48.003,
+    "@type" : "http://schema.org/GeoCoordinates"
+  }, {
+    "@id" : "_:b4",
+    "http://schema.org/latitude" : 13.0219,
+    "http://schema.org/longitude" : 47.82646,
+    "@type" : "http://schema.org/GeoCoordinates"
+  }, {
+    "@id" : "http://sws16.tr1k.de:8080/resources/HotelIBK",
+    "@type" : [ "http://schema.org/Organization", "http://schema.org/LocalBusiness", "http://schema.org/Place", "http://schema.org/LodgingBusiness", "http://www.w3.org/2000/01/rdf-schema#Resource", "http://schema.org/Thing", "http://schema.org/Hotel" ],
+    "http://purl.org/dc/terms/description" : "Beautiful hotel in the city centre",
+    "http://schema.org/branchCode" : [ "HotelIBK", "" ],
+    "http://schema.org/description" : "Beautiful hotel in the city centre",
+    "geo" : "_:b2",
+    "http://schema.org/name" : "Hotel Innsbruck",
+    "http://schema.org/openingHours" : "Mo-Sun 09:00-14:30",
+    "http://schema.org/priceRange" : "70€-200€"
+  }, {
+    "@id" : "http://sws16.tr1k.de:8080/resources/InnHotelPremium",
+    "@type" : [ "http://schema.org/BedAndBreakfast", "http://schema.org/Organization", "http://schema.org/LocalBusiness", "http://schema.org/LodgingBusiness", "http://schema.org/Place", "http://schema.org/Thing", "http://www.w3.org/2000/01/rdf-schema#Resource" ],
+    "http://purl.org/dc/terms/description" : "Nice B&B not far from city centre",
+    "http://schema.org/branchCode" : [ "InnHotelPremium", "" ],
+    "http://schema.org/description" : "Nice B&B not far from city centre",
+    "geo" : "_:b1",
+    "http://schema.org/name" : "Star Inn Hotel Premium Salzburg Gablerbrau",
+    "http://schema.org/openingHours" : "Mo-Sun 7:00-22:00",
+    "http://schema.org/priceRange" : "€70-130€"
+  }, {
+    "@id" : "http://sws16.tr1k.de:8080/resources/KolpingHaus",
+    "@type" : [ "http://schema.org/LodgingBusiness", "http://schema.org/Place", "http://schema.org/LocalBusiness", "http://schema.org/Organization", "http://schema.org/Hostel", "http://www.w3.org/2000/01/rdf-schema#Resource", "http://schema.org/Thing" ],
+    "http://purl.org/dc/terms/description" : "Favourable holidays in Salzburg",
+    "http://schema.org/branchCode" : [ "", "KolpingHaus" ],
+    "http://schema.org/description" : "Favourable holidays in Salzburg",
+    "geo" : "_:b0",
+    "http://schema.org/name" : "Kolping hostel",
+    "http://schema.org/openingHours" : "Nonstop",
+    "http://schema.org/priceRange" : "€50-"
+  }, {
+    "@id" : "http://sws16.tr1k.de:8080/resources/MOCK_RESTAURANT",
+    "@type" : [ "http://schema.org/Place", "http://schema.org/FoodEstablishment", "http://www.w3.org/2000/01/rdf-schema#Resource", "http://schema.org/LocalBusiness", "http://schema.org/Organization", "http://schema.org/Restaurant", "http://schema.org/Thing" ],
+    "ReserveAction" : "http://www.restaurantherzl.at/Reservierung/de/",
+    "http://schema.org/address" : "Getreidegasse 37, 5020 Salzburg",
+    "http://schema.org/branchCode" : "",
+    "http://schema.org/faxNumber" : "+43 662 8084 845",
+    "geo" : "_:b4",
+    "image" : "http://assets.restaurantherzl.at/restaurant/5303/assets/XLGallery/Restaurant-sHerzl-Hotel-goldener-Hirsch-Salzburg.jpg",
+    "http://schema.org/name" : "Restaurant Herzl",
+    "http://schema.org/openingHours" : "Mo-Sun 10:00-24:00",
+    "http://schema.org/telephone" : "+43 662 8084",
+    "url" : "http://www.restaurantherzl.at/de/"
+  }, {
+    "@id" : "http://sws16.tr1k.de:8080/resources/MotelInn",
+    "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Resource", "http://schema.org/Motel", "http://schema.org/Organization", "http://schema.org/LocalBusiness", "http://schema.org/Place", "http://schema.org/LodgingBusiness", "http://schema.org/Thing" ],
+    "http://purl.org/dc/terms/description" : "Nice motel for even nicer price",
+    "http://schema.org/branchCode" : [ "", "MotelInn" ],
+    "http://schema.org/description" : "Nice motel for even nicer price",
+    "geo" : "_:b3",
+    "http://schema.org/name" : "Motel Inn",
+    "http://schema.org/openingHours" : "Nonstop",
+    "http://schema.org/priceRange" : "30€-60€"
+  } ],
+  "@context" : {
+    "geo" : {
+      "@id" : "http://schema.org/geo",
+      "@type" : "@id"
+    },
+    "branchCode" : {
+      "@id" : "http://schema.org/branchCode",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "name" : {
+      "@id" : "http://schema.org/name",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "priceRange" : {
+      "@id" : "http://schema.org/priceRange",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "openingHours" : {
+      "@id" : "http://schema.org/openingHours",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "description" : {
+      "@id" : "http://schema.org/description",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "longitude" : {
+      "@id" : "http://schema.org/longitude",
+      "@type" : "http://www.w3.org/2001/XMLSchema#double"
+    },
+    "latitude" : {
+      "@id" : "http://schema.org/latitude",
+      "@type" : "http://www.w3.org/2001/XMLSchema#double"
+    },
+    "image" : {
+      "@id" : "http://schema.org/image",
+      "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "ReserveAction" : {
+      "@id" : "http://schema.org/ReserveAction",
+      "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "address" : {
+      "@id" : "http://schema.org/address",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "faxNumber" : {
+      "@id" : "http://schema.org/faxNumber",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "url" : {
+      "@id" : "http://schema.org/url",
+      "@type" : "@id"
+    },
+    "telephone" : {
+      "@id" : "http://schema.org/telephone",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    }
+  }
+}
