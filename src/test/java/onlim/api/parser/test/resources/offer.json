@@ -62,7 +62,7 @@
         },
         {
           "@language":  "de",
-          "@value":  "Alpine Wellness"
+          "@value":  "Alpin Wellness"
         },
         {
           "@language":  "it",
@@ -79,15 +79,15 @@
       "schema:teaser":  [
         {
           "@language":  "it",
-          "@value":  "Trattamento viso 24.7 Manicure Spa Scrub corpo vitalizzante Massaggio corpo nutriente&nbsp;"
+          "@value":  "Trattamento viso 24.7 Manicure Spa Scrub corpo vitalizzante Massaggio corpo nutriente"
         },
         {
           "@language":  "de",
-          "@value":  "Gesichts 24.7&nbsp; Spa-Manikuere&nbsp; Revital Body Scrub&nbsp; Pflegende Koerpermassage"
+          "@value":  "Gesichts 24.7 Spa-Manikuere Revital Body Scrub Pflegende Körpermassage"
         },
         {
           "@language":  "en",
-          "@value":  "Facial 24.7&nbsp; Spa Manicure&nbsp; Revitalising Body Scrub&nbsp; Nourishing body massage"
+          "@value":  "Facial 24.7 Spa Manicure Revitalising Body Scrub Nourishing body massage"
         }
       ]
     },
@@ -97,7 +97,7 @@
       "schema:caption":  [
         {
           "@language":  "de",
-          "@value":  "Massage and Spa"
+          "@value":  "Massage und Wellness"
         },
         {
           "@language":  "en",
@@ -117,11 +117,11 @@
       "schema:priceCurrency":  "EUR",
       "schema:validFrom":  {
         "@type":  "xsd:dateTime",
-        "@value":  "2016-07-10T00:00:00+00:00"
+        "@value":  "2016-07-10"
       },
       "schema:validThrough":  {
         "@type":  "xsd:dateTime",
-        "@value":  "2015-06-18T09:00:08+00:00"
+        "@value":  "2015-06-18"
       },
       "schema:valueAddedTaxIncluded":  true
     }

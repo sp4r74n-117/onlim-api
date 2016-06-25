@@ -11,7 +11,7 @@
         },
         {
           "@language":  "de",
-          "@value":  "Das Goldene Dachl ist ein Geb�ude mit sp�tgotischem Prunkerker in der Innsbrucker Altstadt und gilt als Wahrzeichen der Stadt. Das Dach des Erkers wurde mit 2.657 feuervergoldeten Kupferschindeln gedeckt."
+          "@value":  "Das Goldene Dachl ist ein Gebäude mit spätgotischem Prunkerker in der Innsbrucker Altstadt und gilt als Wahrzeichen der Stadt. Das Dach des Erkers wurde mit 2.657 feuervergoldeten Kupferschindeln gedeckt."
         }
    ],
   "schema:address" : {
@@ -35,7 +35,7 @@
         },
         {
           "@language":  "de",
-          "@value":  "�sterreich"
+          "@value":  "Österreich"
         }
    ]
   }
