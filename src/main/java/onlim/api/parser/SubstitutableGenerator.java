@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 import onlim.api.generator.Constraint;
@@ -16,6 +19,9 @@ import onlim.api.reasoner.Reasoner;
  * the generateSubstitutables method.
  */
 public class SubstitutableGenerator {
+
+	private final Logger LOGGER = LoggerFactory.getLogger(SubstitutableGenerator.class);
+
 	private static final String RDF_TYPE = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>";
 	private List<Triple> triples;
 
@@ -37,6 +43,8 @@ public class SubstitutableGenerator {
 		triples = removeTriplesWithNoType();
 		List<ParsedSubstitutable> subst = new LinkedList<>();
 		List<String> alreadyDone = new LinkedList<>();
+
+		LOGGER.info("Generated Substitutables: ");
 		for (Triple t : roots) {
 			// don't process a subject more than once
 			if (alreadyDone.contains(t.getSubject()))
@@ -53,6 +61,9 @@ public class SubstitutableGenerator {
 			alreadyDone.add(t.getSubject());
 
 			subst.addAll(sub);
+		}
+		for (ParsedSubstitutable sub : subst) {
+			LOGGER.info("{}", sub);
 		}
 		return subst;
 	}

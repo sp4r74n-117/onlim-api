@@ -6,7 +6,13 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TemplateStore {
+
+	private final Logger LOGGER = LoggerFactory.getLogger(TemplateStore.class);
+
 	private final static TemplateStore INSTANCE = new TemplateStore();
 	private final List<Template> templates;
 	
@@ -259,13 +265,20 @@ public class TemplateStore {
 	public <T extends Substitutable> List<Template> resolve(final List<T> substitutables, final Resolver resolver) throws Exception {
 		final List<Template> result = new LinkedList<>();
 		for (final Template template : this.templates) {
-			if (!template.isResolvable(substitutables)) continue;
+			if (!template.isResolvable(substitutables)) {
+				continue;
+			}
 			
 			final Template cloned = template.clone();
 			for (final Substitutable substitutable : substitutables)
 				cloned.substitute(substitutable, resolver.resolve(substitutable));
 			result.add(cloned);
 		}
+		System.out.println("================================================================================");
 		return result;
+	}
+
+	public List<Template> getTemplates() {
+		return this.templates;
 	}
 }

@@ -66,7 +66,9 @@ public class OnlimResourceTest {
 			"onlim/api/parser/test/resources/touristattraction.json"
 		};
 		for (final String resource : resources) {
+			System.out.println(resource);
 			postJson(resource);
+			break;
 		}
 	}
 	
@@ -91,8 +93,11 @@ public class OnlimResourceTest {
 		StringBuilder returnStr = new StringBuilder();
 		while ((response = in.readLine()) != null) {
 			returnStr.append(response);
+			returnStr.append("\r\n");
 		}
 		in.close();
+		System.out.println(returnStr.toString());
+		System.out.println("================================================================================");
 		assertTrue(returnStr.length() > 0);
 	}
 }

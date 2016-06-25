@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.github.jsonldjava.core.JsonLdError;
 import com.github.jsonldjava.core.JsonLdOptions;
@@ -17,6 +20,9 @@ import com.github.jsonldjava.utils.JsonUtils;
  * Note that this class is just a simple wrapper with some extensions of the http://json-ld.org/ lib
  */
 public class JsonLdParser {
+
+	private final Logger LOGGER = LoggerFactory.getLogger(JsonLdParser.class);
+
 	public JsonLdParser() {}
 
 	/**
@@ -50,14 +56,18 @@ public class JsonLdParser {
 	private List<Triple> parse(final Object json) throws JsonLdError {
 		List<Triple> result = new LinkedList<>();
 		String rdf = generateRDF(json);
+		Triple tri = null;
 
+		LOGGER.info("Parsing json, found following triples:");
 		for (String t : rdf.split("\n")) {
 			// this regex simply splits the string by space, but does not split at spaces in between quotes
 			String[] triple = t.split(" (?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 			if (triple.length != 4) {
 				throw new IllegalArgumentException("Error at generating triples");
 			}
-			result.add(buildTriple(triple[0], triple[1], triple[2]));
+			tri = buildTriple(triple[0], triple[1], triple[2]);
+			result.add(tri);
+			LOGGER.info("{}", tri);
 		}
 
 		return result;
